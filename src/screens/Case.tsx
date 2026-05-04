@@ -10,6 +10,10 @@ import {
   Microscope,
 } from 'lucide-react';
 
+import wound1 from '../assets/wound1.png';
+import wound2 from '../assets/wound2.png';
+import wound3 from '../assets/wound3.png';
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -151,17 +155,19 @@ const ImageSlot = styled.div`
     width: 100%;
     aspect-ratio: 3/2;
     background-color: #f8fafc;
-    border: 1px dashed ${props => props.theme.colors.border};
+    border: 1px solid ${props => props.theme.colors.border};
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.01) 10px, rgba(0,0,0,0.01) 20px);
+    overflow: hidden;
     
-    .link-icon { width: 18px; height: 18px; color: #f43f5e; }
-    span { font-size: 9px; font-weight: 700; color: ${props => props.theme.colors.text.light}; text-transform: uppercase; }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .desc {
@@ -338,8 +344,7 @@ export const Case: React.FC<CaseProps> = ({ onNavigate }) => {
               <div className="badge">Week 0</div>
               <div className="label">Before treatment</div>
               <div className="box">
-                <Link size={24} className="link-icon" />
-                <span>[ clinical photo week 0 ]</span>
+                <img src={wound1} alt="Week 0" style={{ objectFit: "contain" }} />
               </div>
               <p className="desc">Open ulcer with slough and signs of infection</p>
             </ImageSlot>
@@ -347,8 +352,7 @@ export const Case: React.FC<CaseProps> = ({ onNavigate }) => {
               <div className="badge">Week 6</div>
               <div className="label">During treatment</div>
               <div className="box">
-                <Link size={24} className="link-icon" />
-                <span>[ clinical photo week 6 ]</span>
+                <img src={wound2} alt="Week 6" style={{ objectFit: "contain" }} />
               </div>
               <p className="desc">Reduced wound size with healthy granulation and less exudate</p>
             </ImageSlot>
@@ -356,8 +360,7 @@ export const Case: React.FC<CaseProps> = ({ onNavigate }) => {
               <div className="badge">Week 15</div>
               <div className="label">After treatment</div>
               <div className="box">
-                <Link size={24} className="link-icon" />
-                <span>[ clinical photo week 15 ]</span>
+                <img src={wound3} alt="Week 15" style={{ objectFit: "contain" }} />
               </div>
               <p className="desc">Near-complete closure with healthy epithelial tissue</p>
             </ImageSlot>

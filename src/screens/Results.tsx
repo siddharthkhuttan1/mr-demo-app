@@ -157,7 +157,7 @@ export const Results: React.FC<ResultsProps> = ({ onNavigate }) => {
         <TopRow>
           <Box style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <div style={{ width: '52px', height: '52px', borderRadius: '50%', backgroundColor: '#1d5db2', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: '52px', height: '52px', borderRadius: '50%', backgroundColor: '#0eaef4', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Users size={28} />
               </div>
               <div>
@@ -174,12 +174,12 @@ export const Results: React.FC<ResultsProps> = ({ onNavigate }) => {
             <div style={{ fontSize: '14px', fontWeight: 600, color: '#0f172a', textAlign: 'center', marginBottom: '20px' }}>Gender Distribution</div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px' }}>
               <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '22px', fontWeight: 800, color: '#1d5db2' }}>70%</div>
+                <div style={{ fontSize: '22px', fontWeight: 800, color: '#0eaef4' }}>70%</div>
                 <div style={{ fontSize: '12px', color: '#64748b', display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'flex-end', marginTop: '4px' }}>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#1d5db2' }}></span> Male
+                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#0eaef4' }}></span> Male
                 </div>
               </div>
-              <DoughnutChart percent={70} color="#1d5db2" color2="#f43f5e" />
+              <DoughnutChart percent={70} color="#0eaef4" color2="#f43f5e" />
               <div style={{ textAlign: 'left' }}>
                 <div style={{ fontSize: '22px', fontWeight: 800, color: '#f43f5e' }}>30%</div>
                 <div style={{ fontSize: '12px', color: '#64748b', display: 'flex', alignItems: 'center', gap: '6px', marginTop: '4px' }}>
@@ -193,12 +193,12 @@ export const Results: React.FC<ResultsProps> = ({ onNavigate }) => {
             <div style={{ fontSize: '14px', fontWeight: 600, color: '#0f172a', textAlign: 'center', marginBottom: '20px' }}>Wound Distribution by Region</div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px' }}>
               <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '22px', fontWeight: 800, color: '#1d5db2' }}>70%</div>
+                <div style={{ fontSize: '22px', fontWeight: 800, color: '#0eaef4' }}>70%</div>
                 <div style={{ fontSize: '12px', color: '#64748b', display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'flex-end', marginTop: '4px' }}>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#1d5db2' }}></span> Lower Body
+                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#0eaef4' }}></span> Lower Body
                 </div>
               </div>
-              <DoughnutChart percent={70} color="#1d5db2" color2="#10b981" />
+              <DoughnutChart percent={70} color="#0eaef4" color2="#10b981" />
               <div style={{ textAlign: 'left' }}>
                 <div style={{ fontSize: '22px', fontWeight: 800, color: '#10b981' }}>30%</div>
                 <div style={{ fontSize: '12px', color: '#64748b', display: 'flex', alignItems: 'center', gap: '6px', marginTop: '4px' }}>
@@ -211,7 +211,7 @@ export const Results: React.FC<ResultsProps> = ({ onNavigate }) => {
           <Box style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div style={{ fontSize: '14px', fontWeight: 600, color: '#0f172a', textAlign: 'center', marginBottom: '20px' }}>Study Duration</div>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-              <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: '#f1f5f9', color: '#1d5db2', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: '#f1f5f9', color: '#0eaef4', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <Calendar size={18} />
               </div>
               <div>
@@ -262,8 +262,8 @@ export const Results: React.FC<ResultsProps> = ({ onNavigate }) => {
 
               <div style={{ textAlign: 'center' }}>
                 <div style={{ fontSize: '12px', fontWeight: 600, height: '36px', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Overall Outcome</div>
-                <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: '#eff6ff', color: '#1d5db2', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}><Users size={32} /></div>
-                <div style={{ fontSize: '22px', fontWeight: 800, color: '#1d5db2', marginBottom: '4px' }}>Favorable</div>
+                <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: '#eff6ff', color: '#0eaef4', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}><Users size={32} /></div>
+                <div style={{ fontSize: '22px', fontWeight: 800, color: '#0eaef4', marginBottom: '4px' }}>Favorable</div>
                 <div style={{ fontSize: '11px', color: '#64748b', marginTop: '30px' }}>supports infection<br />control and healing</div>
               </div>
             </div>

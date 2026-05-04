@@ -14,7 +14,7 @@ import MenuBook from '@mui/icons-material/MenuBook';
 
 const SidebarContainer = styled.nav`
   width: 100px;
-  height: 100vh;
+  height: 100%;
   background-color: #ffffff;
   border-right: 1px solid ${props => props.theme.colors.border};
   display: flex;

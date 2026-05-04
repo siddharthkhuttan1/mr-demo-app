@@ -32,6 +32,7 @@ const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${props => props.theme.spacing.sm};
+  height: 100%;
 `;
 
 const Tagline = styled.span`
@@ -75,10 +76,10 @@ const CTAButton = styled.button<{ primary?: boolean; fullWidth?: boolean }>`
   justify-content: space-between;
   padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
   border-radius: ${props => props.theme.borderRadius.md};
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   transition: ${props => props.theme.transitions.default};
-  box-shadow: ${props => props.theme.shadows.sm};
+ /// box-shadow: ${props => props.theme.shadows.sm};
   grid-column: ${props => props.fullWidth ? 'span 2' : 'span 1'};
 
   background: ${props => props.primary
@@ -86,6 +87,7 @@ const CTAButton = styled.button<{ primary?: boolean; fullWidth?: boolean }>`
     : 'white'};
   color: ${props => props.primary ? 'white' : props.theme.colors.text.main};
   border: 1px solid ${props => props.primary ? 'transparent' : props.theme.colors.border};
+  height: 80px;
 
   &:hover {
     transform: translateY(-2px);
@@ -114,7 +116,7 @@ const DiagramSection = styled.div`
 
 const DiagramText = styled.div`
   text-align: center;
-  color: #2c4c70;
+  color: #0eaef4;
   h2 {
     font-size: 52px;
     font-weight: 800;
@@ -146,7 +148,7 @@ const ProductCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 560px;
+  height: 820px;
   width: 280px;
   position: relative;
   
@@ -276,9 +278,9 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   return (
     <HomeContainer>
       <HeroSection>
-        <TextContent>
+        <TextContent style={{ marginTop: "16px" }}>
           <Tagline>Prospective Clinical Study • 2023-2024</Tagline>
-          <Title>Effect of <br /><HighlightText>Hypochlorous<br />Acid</HighlightText><br />in Open Wound<br />Healing</Title>
+          <Title style={{ marginTop: "100px" }}>Effect of <br /><HighlightText>Hypochlorous<br />Acid</HighlightText><br />in Open Wound<br />Healing</Title>
           <Description>
             An interactive clinical experience exploring HOCl-based wound care — mechanism, methodology, results, and a real-world case progression.
           </Description>

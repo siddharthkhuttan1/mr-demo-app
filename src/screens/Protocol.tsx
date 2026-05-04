@@ -15,6 +15,11 @@ import {
 import hocl2partImg from '../assets/hocl2part.png';
 import honeyImg from '../assets/honey.png';
 import hoclSolnImg from '../assets/hocl-soln.png';
+import treatment1Img from '../assets/treatment1.PNG';
+import treatment2Img from '../assets/treatment2.PNG';
+import treatment3Img from '../assets/treatment3.PNG';
+import treatment4Img from '../assets/treatment4.PNG';
+import treatment5Img from '../assets/treatment5.PNG';
 
 const Container = styled.div`
   display: flex;
@@ -262,15 +267,20 @@ const TreatmentStep = styled.div`
 
   .visual {
     width: 100%;
-    height: 80px;
-    background-color: #f8fafc;
-    border: 1px dashed ${props => props.theme.colors.border};
+    aspect-ratio: 1 / 1;
     border-radius: ${props => props.theme.borderRadius.md};
     display: flex;
     align-items: center;
     justify-content: center;
-    color: ${props => props.theme.colors.text.light};
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.01) 10px, rgba(0,0,0,0.01) 20px);
+    overflow: hidden;
+    border: 1px solid ${props => props.theme.colors.border};
+    background-color: white;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .info {
@@ -374,15 +384,17 @@ export const Protocol: React.FC<ProtocolProps> = ({ onNavigate }) => {
         </TreatmentHeader>
         <TreatmentGrid>
           {[
-            { title: 'Irrigation', desc: 'Formulation used to irrigate open wound.', icon: Syringe },
-            { title: 'Moisture control', desc: 'Dry gauze used to wipe excess fluid.', icon: Wind },
-            { title: 'No saline wash', desc: 'Formulation left inside the cavity.', icon: Droplet },
-            { title: 'Frequency', desc: 'Applied 3 times daily.', icon: Clock },
-            { title: 'Healing', desc: 'Wound monitored over time.', icon: Activity },
+            { title: 'Irrigation', desc: 'Formulation used to irrigate open wound.', img: treatment1Img },
+            { title: 'Moisture control', desc: 'Dry gauze used to wipe excess fluid.', img: treatment2Img },
+            { title: 'No saline wash', desc: 'Formulation left inside the cavity.', img: treatment3Img },
+            { title: 'Frequency', desc: 'Applied 3 times daily.', img: treatment4Img },
+            { title: 'Healing', desc: 'Wound monitored over time.', img: treatment5Img },
           ].map((step, i) => (
             <TreatmentStep key={i}>
               <div className="num">{i + 1}</div>
-              <div className="visual"><step.icon size={28} /></div>
+              <div className="visual">
+                <img src={step.img} alt={step.title} />
+              </div>
               <div className="info">
                 <h5>{step.title}</h5>
                 <p>{step.desc}</p>
