@@ -11,7 +11,6 @@ import Info from '@mui/icons-material/Info';
 import Notes from '@mui/icons-material/Notes';
 import Report from '@mui/icons-material/Report';
 import Bacteria from '@mui/icons-material/Coronavirus';
-import Insights from '@mui/icons-material/Insights';
 import Vaccines from '@mui/icons-material/Vaccines';
 import Medication from '@mui/icons-material/Medication';
 import BarChart from '@mui/icons-material/BarChart';

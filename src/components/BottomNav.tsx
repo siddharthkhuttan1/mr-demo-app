@@ -22,13 +22,6 @@ const NavContent = styled.div`
   justify-content: center;
 `;
 
-const NavLabel = styled.span`
-  font-size: 13px;
-  font-weight: 600;
-  color: ${props => props.theme.colors.text.muted};
-  margin-right: ${props => props.theme.spacing.md};
-`;
-
 const StepList = styled.div`
   display: flex;
   align-items: center;

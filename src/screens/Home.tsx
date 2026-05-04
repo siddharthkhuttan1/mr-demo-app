@@ -34,14 +34,6 @@ const TextContent = styled.div`
   gap: ${props => props.theme.spacing.sm};
 `;
 
-const BrandingLogo = styled.img`
-  height: 28px;
-  width: auto;
-  object-fit: contain;
-  align-self: flex-start;
-  margin-bottom: ${props => props.theme.spacing.sm};
-`;
-
 const Tagline = styled.span`
   color: ${props => props.theme.colors.primary};
   font-weight: 700;
@@ -325,7 +317,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <svg width="200" height="100" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 8px 12px rgba(0,0,0,0.04))' }}>
               <line x1="60" y1="80" x2="120" y2="40" stroke="#bae6fd" strokeWidth="4" strokeLinecap="round" />
               <line x1="120" y1="40" x2="180" y2="80" stroke="#bae6fd" strokeWidth="4" strokeLinecap="round" />
-              
+
               <circle cx="50" cy="85" r="24" fill="white" stroke="#e0f2fe" strokeWidth="2" />
               <text x="50" y="92" fontSize="22" fontWeight="800" fill="#2c4c70" textAnchor="middle">H</text>
 

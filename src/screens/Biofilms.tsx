@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Network, ShieldAlert, Activity, AlertCircle } from 'lucide-react';
+import { ShieldAlert, Activity, AlertCircle } from 'lucide-react';
 import Shield from '@mui/icons-material/HealthAndSafety';
-import Biotech from '@mui/icons-material/Biotech';
 import Search from '@mui/icons-material/Search';
 
 import biofilm1 from '../assets/biofilm-1.png';
@@ -427,7 +426,7 @@ export const Biofilms: React.FC = () => {
 
         <TakeawayCard>
           <div className="icon-wrapper">
-            <Shield size={24} />
+            <Shield sx={{ fontSize: 24 }} />
           </div>
           <div>
             <h3>Key Takeaway</h3>

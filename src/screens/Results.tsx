@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { 
-  Users, 
-  Calendar, 
-  Shield, 
-  Maximize, 
-  Clock, 
-  Thermometer, 
+import {
+  Users,
+  Calendar,
+  Shield,
+  Maximize,
+  Clock,
+  Thermometer,
   Activity,
   Zap,
-  CheckCircle2
 } from 'lucide-react';
 
 const Container = styled.div`
@@ -459,7 +458,7 @@ export const Results: React.FC = () => {
               <h4>Healing Progress Over Time</h4>
               <span>Timeline of wound healing milestones (in weeks)</span>
             </div>
-            
+
             <TimelineRow>
               <div className="label-group">
                 <Shield size={14} className="icon" />

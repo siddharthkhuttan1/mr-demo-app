@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { 
-  User, 
-  Activity, 
-  Thermometer, 
-  Shield, 
-  CheckCircle2, 
+import {
+  User,
+  Activity,
+  Shield,
+  CheckCircle2,
   Info,
   Link,
   Microscope,
-  Calendar
 } from 'lucide-react';
 
 const Container = styled.div`

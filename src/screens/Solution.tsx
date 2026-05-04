@@ -1,14 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { 
-  Droplet, 
-  Sparkles, 
-  LayoutGrid, 
-  Minus, 
-  Wind, 
-  ShieldCheck, 
-  Zap, 
-  RefreshCcw, 
+import {
+  Sparkles,
+  Minus,
+  ShieldCheck,
+  Zap,
+  RefreshCcw,
   CheckCircle,
   Heart,
   Info
