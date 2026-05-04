@@ -30,9 +30,9 @@ const Header = styled.div`
     margin-bottom: 4px;
   }
   h1 {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 800;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
   p {
     font-size: 15px;
@@ -52,7 +52,7 @@ const Card = styled.div`
 const MainGrid = styled.div`
   display: grid;
   grid-template-columns: 280px 1fr 280px;
-  gap: ${props => props.theme.spacing.lg};
+  gap: ${props => props.theme.spacing.md};
 `;
 
 const PatientSummary = styled(Card)`
@@ -85,7 +85,7 @@ const SummaryItem = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-bottom: 10px;
+  padding-bottom: 6px;
   border-bottom: 1px solid #f1f5f9;
   
   &:last-child { border-bottom: none; }
@@ -97,7 +97,7 @@ const SummaryItem = styled.div`
 const ProgressionGrid = styled(Card)`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
   
   .header {
     h3 { font-size: 15px; font-weight: 700; }
@@ -133,7 +133,7 @@ const ImageSlot = styled.div`
 
   .box {
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 3/2;
     background-color: #f8fafc;
     border: 1px dashed ${props => props.theme.colors.border};
     border-radius: 8px;
@@ -141,11 +141,11 @@ const ImageSlot = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 4px;
     background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.01) 10px, rgba(0,0,0,0.01) 20px);
     
-    .link-icon { color: #f43f5e; }
-    span { font-size: 10px; font-weight: 700; color: ${props => props.theme.colors.text.light}; text-transform: uppercase; }
+    .link-icon { width: 18px; height: 18px; color: #f43f5e; }
+    span { font-size: 9px; font-weight: 700; color: ${props => props.theme.colors.text.light}; text-transform: uppercase; }
   }
 
   .desc {
@@ -162,11 +162,12 @@ const InterpretationCard = styled(Card)`
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 16px;
+  gap: 12px;
+  padding: ${props => props.theme.spacing.md};
   
   .icon-box {
-    width: 56px;
-    height: 56px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background-color: ${props => props.theme.colors.primary};
     color: white;
@@ -198,27 +199,27 @@ const TimelineHeader = styled.div`
 
 const TimelineTrack = styled.div`
   position: relative;
-  padding: 40px 20px;
+  padding: 24px 20px;
   
   &::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 40px;
-    right: 40px;
+    top: 58px;
+    left: 70px;
+    right: 70px;
     height: 3px;
-    background-color: #f1f5f9;
-    transform: translateY(-50%);
+    background-color: #e2e8f0;
+    z-index: 0;
   }
 
   .progress {
     position: absolute;
-    top: 50%;
-    left: 40px;
-    width: 50%;
+    top: 58px;
+    left: 70px;
+    width: 60%;
     height: 3px;
     background-color: ${props => props.theme.colors.primary};
-    transform: translateY(-50%);
+    z-index: 1;
   }
 `;
 
@@ -226,23 +227,24 @@ const TimelineNodes = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 `;
 
 const TimelineNode = styled.div<{ active?: boolean, completed?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  width: 120px;
+  gap: 10px;
+  width: 100px;
 
   .point {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: ${props => props.completed ? props.theme.colors.primary : props.active ? 'white' : 'white'};
+    background-color: ${props => props.completed ? props.theme.colors.primary : 'white'};
     border: 3px solid ${props => props.completed || props.active ? props.theme.colors.primary : '#e2e8f0'};
     transition: all 0.3s ease;
+    z-index: 2;
   }
 
   .label-group {

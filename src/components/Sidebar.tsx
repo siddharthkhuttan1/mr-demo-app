@@ -1,17 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import vidaLogo from '../assets/vida.png';
-import {
-  Home,
-  Clock,
-  Users,
-  Droplet,
-  FileText,
-  BarChart2,
-  User,
-  CheckCircle,
-  BookOpen
-} from 'lucide-react';
+import Home from '@mui/icons-material/Home';
+import LandSlide from '@mui/icons-material/Landslide';
+import Bacteria from '@mui/icons-material/Coronavirus';
+import Bulb from '@mui/icons-material/EmojiObjects';
+import Assignment from '@mui/icons-material/Assignment';
+import Assessment from '@mui/icons-material/Assessment';
+import MedicalInformation from '@mui/icons-material/MedicalInformation';
+import TaskAlt from '@mui/icons-material/TaskAlt';
+import MenuBook from '@mui/icons-material/MenuBook';
+
 
 const SidebarContainer = styled.nav`
   width: 100px;
@@ -76,8 +75,8 @@ const IconWrapper = styled.div<NavItemProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${props => props.active 
-    ? `linear-gradient(135deg, ${props.theme.colors.primary} 0%, ${props.theme.colors.primaryLight} 100%)` 
+  background: ${props => props.active
+    ? `linear-gradient(135deg, ${props.theme.colors.primary} 0%, ${props.theme.colors.primaryLight} 100%)`
     : 'transparent'};
   color: ${props => props.active ? 'white' : 'inherit'};
   border-radius: ${props => props.theme.borderRadius.md};
@@ -98,14 +97,14 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ activeSection, onNavigate }) => {
   const menuItems = [
     { id: 'home', icon: Home, label: 'Home' },
-    { id: 'challenge', icon: Clock, label: 'Challenge' },
-    { id: 'biofilms', icon: Users, label: 'Biofilms' },
-    { id: 'solution', icon: Droplet, label: 'Solution' },
-    { id: 'protocol', icon: FileText, label: 'Protocol' },
-    { id: 'results', icon: BarChart2, label: 'Results' },
-    { id: 'case', icon: User, label: 'Case' },
-    { id: 'conclusion', icon: CheckCircle, label: 'Conclusion' },
-    { id: 'references', icon: BookOpen, label: 'References' },
+    { id: 'challenge', icon: LandSlide, label: 'Challenge' },
+    { id: 'biofilms', icon: Bacteria, label: 'Biofilms' },
+    { id: 'solution', icon: Bulb, label: 'Solution' },
+    { id: 'protocol', icon: Assignment, label: 'Protocol' },
+    { id: 'results', icon: Assessment, label: 'Results' },
+    { id: 'case', icon: MedicalInformation, label: 'Case' },
+    { id: 'conclusion', icon: TaskAlt, label: 'Conclusion' },
+    { id: 'references', icon: MenuBook, label: 'References' },
   ];
 
   return (
@@ -121,7 +120,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeSection, onNavigate }) =
             onClick={() => onNavigate(item.id)}
           >
             <IconWrapper active={activeSection === item.id}>
-              <item.icon size={20} />
+              <item.icon sx={{ fontSize: 24 }} />
             </IconWrapper>
             <NavLabel>{item.label}</NavLabel>
           </NavItem>

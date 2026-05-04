@@ -54,15 +54,15 @@ const StepItem = styled.div<StepItemProps>`
   cursor: pointer;
   transition: ${props => props.theme.transitions.default};
   
-  background: ${props => props.active 
-    ? `linear-gradient(135deg, ${props.theme.colors.primary} 0%, ${props.theme.colors.primaryLight} 100%)` 
+  background: ${props => props.active
+    ? `linear-gradient(135deg, ${props.theme.colors.primary} 0%, ${props.theme.colors.primaryLight} 100%)`
     : 'transparent'};
   color: ${props => props.active ? 'white' : props.theme.colors.text.muted};
 
   &:hover {
-    background: ${props => props.active 
-      ? `linear-gradient(135deg, ${props.theme.colors.primary} 0%, ${props.theme.colors.primaryLight} 100%)` 
-      : props.theme.colors.background.accent};
+    background: ${props => props.active
+    ? `linear-gradient(135deg, ${props.theme.colors.primary} 0%, ${props.theme.colors.primaryLight} 100%)`
+    : props.theme.colors.background.accent};
   }
 `;
 
@@ -123,9 +123,9 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentSection, onNavigate
 
   return (
     <BottomNavContainer>
-      {/* <IconButton onClick={handlePrev}>
+      <IconButton onClick={handlePrev}>
         <ChevronLeft size={18} />
-      </IconButton> */}
+      </IconButton>
 
       <NavContent>
         {/* <NavLabel>Step Navigation</NavLabel> */}
@@ -143,9 +143,9 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentSection, onNavigate
         </StepList>
       </NavContent>
 
-      {/* <IconButton onClick={handleNext}>
+      <IconButton onClick={handleNext}>
         <ChevronRight size={18} />
-      </IconButton> */}
+      </IconButton>
     </BottomNavContainer>
   );
 };

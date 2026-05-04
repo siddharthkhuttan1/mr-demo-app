@@ -32,7 +32,7 @@ const MainWrapper = styled.div`
 
 const ContentArea = styled.main`
   flex: 1;
-  padding: ${props => props.theme.spacing.lg};
+  padding: ${props => props.theme.spacing.md};
   overflow-y: auto;
   background-color: ${props => props.theme.colors.background.main};
   position: relative;

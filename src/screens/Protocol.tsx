@@ -206,10 +206,11 @@ const TreatmentGrid = styled.div`
     content: '';
     position: absolute;
     top: 12px;
-    left: 5%;
-    right: 5%;
+    left: 10%;
+    right: 10%;
     height: 1px;
     background: ${props => props.theme.colors.border};
+    z-index: 0;
   }
 `;
 
@@ -219,6 +220,7 @@ const TreatmentStep = styled.div`
   align-items: center;
   text-align: center;
   gap: 12px;
+  position: relative;
   z-index: 1;
 
   .num {

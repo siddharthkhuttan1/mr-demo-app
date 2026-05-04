@@ -1,7 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Play, FileText, User, ChevronRight, Droplet, Clock, Users, FlaskConical, BarChart2, CheckCircle } from 'lucide-react';
-import vidasolnLogo from '../assets/vidasoln-logo.jpeg';
 import productImg from '../assets/vida-med-super-oxidized.png';
 
 const HomeContainer = styled.div`
@@ -11,15 +10,21 @@ const HomeContainer = styled.div`
   gap: ${props => props.theme.spacing.xl};
 `;
 
+const floatAnimation = keyframes`
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+`;
+
 const HeroSection = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr 1.3fr;
   gap: ${props => props.theme.spacing.xl};
   align-items: center;
-  min-height: 400px;
-  background: white;
+  min-height: 440px;
+  background: linear-gradient(135deg, #eef7ff 0%, #d4eaf7 100%);
   margin: -${props => props.theme.spacing.lg} -${props => props.theme.spacing.lg} 0 -${props => props.theme.spacing.lg};
-  padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.xl};
+  padding: ${props => props.theme.spacing.xl} ${props => props.theme.spacing.xl};
   border-bottom: 1px solid ${props => props.theme.colors.border};
 `;
 
@@ -30,7 +35,7 @@ const TextContent = styled.div`
 `;
 
 const BrandingLogo = styled.img`
-  height: 48px;
+  height: 28px;
   width: auto;
   object-fit: contain;
   align-self: flex-start;
@@ -51,6 +56,10 @@ const Title = styled.h1`
   line-height: 1.1;
   color: ${props => props.theme.colors.text.main};
   margin-bottom: ${props => props.theme.spacing.xs};
+`;
+
+const HighlightText = styled.span`
+  color: ${props => props.theme.colors.primary};
 `;
 
 const Description = styled.p`
@@ -80,14 +89,17 @@ const CTAButton = styled.button<{ primary?: boolean; fullWidth?: boolean }>`
   box-shadow: ${props => props.theme.shadows.sm};
   grid-column: ${props => props.fullWidth ? 'span 2' : 'span 1'};
 
-  background-color: ${props => props.primary ? props.theme.colors.primary : 'white'};
+  background: ${props => props.primary
+    ? `linear-gradient(135deg, ${props.theme.colors.primary} 0%, ${props.theme.colors.primaryLight} 100%)`
+    : 'white'};
   color: ${props => props.primary ? 'white' : props.theme.colors.text.main};
   border: 1px solid ${props => props.primary ? 'transparent' : props.theme.colors.border};
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: ${props => props.theme.shadows.md};
-    background-color: ${props => props.primary ? props.theme.colors.primaryDark : '#f8fafc'};
+    opacity: ${props => props.primary ? 0.9 : 1};
+    background: ${props => !props.primary ? '#f8fafc' : undefined};
   }
 `;
 
@@ -97,13 +109,69 @@ const VisualContent = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  gap: 40px;
+`;
+
+const DiagramSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+`;
+
+const DiagramText = styled.div`
+  text-align: center;
+  color: #2c4c70;
+  h2 {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0;
+    letter-spacing: -1px;
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0;
+  }
+  p {
+    font-size: 11px;
+    font-weight: 700;
+    margin: 6px 0 0 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #4a749e;
+  }
+`;
+
+const ProductCard = styled.div`
+  background: white;
+  border-radius: 32px;
+  padding: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 380px;
+  width: 280px;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
 `;
 
 const ProductImage = styled.img`
-  width: 100%;
-  max-height: 440px;
+  width: auto;
+  height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.08));
+  animation: ${floatAnimation} 4s ease-in-out infinite;
 `;
 
 const WalkthroughGrid = styled.div`
@@ -217,9 +285,8 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     <HomeContainer>
       <HeroSection>
         <TextContent>
-          <BrandingLogo src={vidasolnLogo} alt="Vida Solutions Logo" />
           <Tagline>Prospective Clinical Study • 2023-2024</Tagline>
-          <Title>Effect of Hypochlorous<br />Acid in Open Wound<br />Healing</Title>
+          <Title>Effect of <br /><HighlightText>Hypochlorous<br />Acid</HighlightText><br />in Open Wound<br />Healing</Title>
           <Description>
             An interactive clinical experience exploring HOCl-based wound care — mechanism, methodology, results, and a real-world case progression.
           </Description>
@@ -249,7 +316,35 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         </TextContent>
 
         <VisualContent>
-          <ProductImage src={productImg} alt="VidaMed Product" />
+          <DiagramSection>
+            <DiagramText>
+              <h2>HOCl</h2>
+              <p>HYPOCHLOROUS ACID</p>
+            </DiagramText>
+
+            <svg width="200" height="100" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 8px 12px rgba(0,0,0,0.04))' }}>
+              <line x1="60" y1="80" x2="120" y2="40" stroke="#bae6fd" strokeWidth="4" strokeLinecap="round" />
+              <line x1="120" y1="40" x2="180" y2="80" stroke="#bae6fd" strokeWidth="4" strokeLinecap="round" />
+              
+              <circle cx="50" cy="85" r="24" fill="white" stroke="#e0f2fe" strokeWidth="2" />
+              <text x="50" y="92" fontSize="22" fontWeight="800" fill="#2c4c70" textAnchor="middle">H</text>
+
+              <circle cx="120" cy="35" r="28" fill="white" stroke="#e0f2fe" strokeWidth="2" />
+              <text x="120" y="43" fontSize="24" fontWeight="800" fill="#2c4c70" textAnchor="middle">O</text>
+
+              <circle cx="190" cy="85" r="24" fill="white" stroke="#e0f2fe" strokeWidth="2" />
+              <text x="190" y="92" fontSize="22" fontWeight="800" fill="#2c4c70" textAnchor="middle">Cl</text>
+            </svg>
+
+            <DiagramText>
+              <h3>HOCl</h3>
+              <p style={{ fontSize: '9px' }}>CHEMICAL COMPOSITION DIAGRAM</p>
+            </DiagramText>
+          </DiagramSection>
+
+          <ProductCard>
+            <ProductImage src={productImg} alt="VidaMed Product" />
+          </ProductCard>
         </VisualContent>
       </HeroSection>
 

@@ -1,22 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  User,
-  Clock,
-  ShieldCheck,
-  Droplet,
-  Wind,
-  Heart,
-  Leaf,
-  Zap,
-  LayoutGrid,
-  Syringe,
-  Info,
-  Activity,
-  BarChart3,
-  Layers,
-  FlaskConical,
-} from 'lucide-react';
+import Man from '@mui/icons-material/Man';
+import Schedule from '@mui/icons-material/Schedule';
+import Verified from '@mui/icons-material/Verified';
+import WaterDrop from '@mui/icons-material/WaterDrop';
+import Smoking from '@mui/icons-material/SmokingRooms';
+import HeartBroken from '@mui/icons-material/HeartBroken';
+import Egg from '@mui/icons-material/Egg';
+import Info from '@mui/icons-material/Info';
+import Notes from '@mui/icons-material/Notes';
+import Report from '@mui/icons-material/Report';
+import Bacteria from '@mui/icons-material/Coronavirus';
+import Insights from '@mui/icons-material/Insights';
+import Vaccines from '@mui/icons-material/Vaccines';
+import Medication from '@mui/icons-material/Medication';
+import BarChart from '@mui/icons-material/BarChart';
+import Biotech from '@mui/icons-material/Biotech';
 import ChronicWoundImg from '../assets/chronic-wound.png';
 
 const Container = styled.div`
@@ -275,7 +274,7 @@ export const Challenge: React.FC = () => {
             <CardHeader>
               <div className="title-group">
                 <div className="icon-container">
-                  <User size={20} />
+                  <Man sx={{ fontSize: 20 }} />
                 </div>
                 <div>
                   <h3>Systemic Factors</h3>
@@ -283,12 +282,12 @@ export const Challenge: React.FC = () => {
                 </div>
               </div>
             </CardHeader>
-            <ListItem><div className="item-icon"><Clock size={16} /></div> Age</ListItem>
-            <ListItem><div className="item-icon"><ShieldCheck size={16} /></div> Immunity</ListItem>
-            <ListItem><div className="item-icon"><Droplet size={16} /></div> Diabetes</ListItem>
-            <ListItem><div className="item-icon"><Wind size={16} /></div> Smoking</ListItem>
-            <ListItem><div className="item-icon"><Heart size={16} /></div> Comorbidities</ListItem>
-            <ListItem><div className="item-icon"><Leaf size={16} /></div> Nutritional deficiency</ListItem>
+            <ListItem><div className="item-icon"><Schedule sx={{ fontSize: 16 }} /></div> Age</ListItem>
+            <ListItem><div className="item-icon"><Verified sx={{ fontSize: 16 }} /></div> Immunity</ListItem>
+            <ListItem><div className="item-icon"><WaterDrop sx={{ fontSize: 16 }} /></div> Diabetes</ListItem>
+            <ListItem><div className="item-icon"><Smoking sx={{ fontSize: 16 }} /></div> Smoking</ListItem>
+            <ListItem><div className="item-icon"><HeartBroken sx={{ fontSize: 16 }} /></div> Comorbidities</ListItem>
+            <ListItem><div className="item-icon"><Egg sx={{ fontSize: 16 }} /></div> Nutritional deficiency</ListItem>
           </Card>
         </FactorColumn>
 
@@ -306,7 +305,7 @@ export const Challenge: React.FC = () => {
             </div>
           </WoundImageContainer>
           <InfoBar style={{ backgroundColor: '#eff6ff', border: 'none', color: '#1e40af' }}>
-            <Info size={18} style={{ flexShrink: 0, marginTop: '2px' }} />
+            <Info sx={{ fontSize: 18, flexShrink: 0, marginTop: '2px' }} />
             <p style={{ fontSize: '13px', fontWeight: 500 }}>These interrelated factors disrupt the normal healing cascade, prolong inflammation, and impair tissue regeneration — leading to delayed or stalled healing.</p>
           </InfoBar>
         </AnatomicalView>
@@ -316,7 +315,7 @@ export const Challenge: React.FC = () => {
             <CardHeader>
               <div className="title-group">
                 <div className="icon-container" style={{ backgroundColor: '#f0fdfa', color: '#0d9488' }}>
-                  <Layers size={20} />
+                  <Notes sx={{ fontSize: 20 }} />
                 </div>
                 <div>
                   <h3>Local Factors</h3>
@@ -324,16 +323,16 @@ export const Challenge: React.FC = () => {
                 </div>
               </div>
             </CardHeader>
-            <ListItem><div className="item-icon" style={{ color: '#0d9488' }}><Zap size={16} /></div> Bacterial infection</ListItem>
-            <ListItem><div className="item-icon" style={{ color: '#0d9488' }}><LayoutGrid size={16} /></div> Biofilms</ListItem>
-            <ListItem><div className="item-icon" style={{ color: '#0d9488' }}><Activity size={16} /></div> Venous insufficiency</ListItem>
+            <ListItem><div className="item-icon" style={{ color: '#0d9488' }}><Biotech sx={{ fontSize: 16 }} /></div> Bacterial infection</ListItem>
+            <ListItem><div className="item-icon" style={{ color: '#0d9488' }}><Bacteria sx={{ fontSize: 16 }} /></div> Biofilms</ListItem>
+            <ListItem><div className="item-icon" style={{ color: '#0d9488' }}><Report sx={{ fontSize: 16 }} /></div> Venous insufficiency</ListItem>
           </Card>
 
           <Card>
             <CardHeader>
               <div className="title-group">
                 <div className="icon-container" style={{ backgroundColor: '#f5f3ff', color: '#7c3aed' }}>
-                  <Syringe size={20} />
+                  <Notes sx={{ fontSize: 20 }} />
                 </div>
                 <div>
                   <h3>Iatrogenic Factors</h3>
@@ -341,8 +340,8 @@ export const Challenge: React.FC = () => {
                 </div>
               </div>
             </CardHeader>
-            <ListItem><div className="item-icon" style={{ color: '#7c3aed' }}><ShieldCheck size={16} /></div> Steroids</ListItem>
-            <ListItem><div className="item-icon" style={{ color: '#7c3aed' }}><FlaskConical size={16} /></div> Chemotherapeutic drugs</ListItem>
+            <ListItem><div className="item-icon" style={{ color: '#7c3aed' }}><Vaccines sx={{ fontSize: 16 }} /></div> Steroids</ListItem>
+            <ListItem><div className="item-icon" style={{ color: '#7c3aed' }}><Medication sx={{ fontSize: 16 }} /></div> Chemotherapeutic drugs</ListItem>
           </Card>
         </FactorColumn>
       </ContentGrid>
@@ -351,7 +350,7 @@ export const Challenge: React.FC = () => {
         <StatCard accentColor="#3b82f6">
           <div className="stat-header">
             <div className="icon-container">
-              <Clock size={22} />
+              <Schedule sx={{ fontSize: 22 }} />
             </div>
             <span className="value">Up to 2%</span>
           </div>
@@ -364,7 +363,7 @@ export const Challenge: React.FC = () => {
         <StatCard accentColor="#0d9488">
           <div className="stat-header">
             <div className="icon-container" style={{ backgroundColor: '#f0fdfa', color: '#0d9488' }}>
-              <BarChart3 size={22} />
+              <BarChart sx={{ fontSize: 22 }} />
             </div>
             <span className="value" style={{ color: '#0d9488' }}>$25B+</span>
           </div>
@@ -374,12 +373,12 @@ export const Challenge: React.FC = () => {
           </div>
         </StatCard>
 
-        <StatCard accentColor="#1e293b">
+        <StatCard accentColor="#ff7636ff">
           <div className="stat-header">
-            <div className="icon-container" style={{ backgroundColor: '#f8fafc', color: '#1e293b' }}>
-              <ShieldCheck size={22} />
+            <div className="icon-container" style={{ backgroundColor: '#f8fafc', color: '#ff7636ff' }}>
+              <Verified sx={{ fontSize: 22 }} />
             </div>
-            <span className="value" style={{ color: '#1e293b' }}>Multifactorial</span>
+            <span className="value" style={{ color: '#ff7636ff' }}>Multifactorial</span>
           </div>
           <div className="stat-content">
             <h4>Complex Management</h4>

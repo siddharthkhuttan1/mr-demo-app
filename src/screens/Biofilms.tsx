@@ -1,17 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Network, Shield, Plus, ShieldAlert, Activity, AlertCircle } from 'lucide-react';
+import { Network, ShieldAlert, Activity, AlertCircle } from 'lucide-react';
+import Shield from '@mui/icons-material/HealthAndSafety';
+import Biotech from '@mui/icons-material/Biotech';
+import Search from '@mui/icons-material/Search';
 
 import biofilm1 from '../assets/biofilm-1.png';
 import biofilm2 from '../assets/biofilm-2.png';
 import biofilm3 from '../assets/biofilm-3.png';
 import biofilm4 from '../assets/biofilm-4.png';
 import biofilm5 from '../assets/biofilm-5.png';
+import staphAureus from '../assets/Staphylococcus_aureus.jpg';
+import pseudoAeruginosa from '../assets/Pseudomonas-Aeruginosa.jpg';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${props => props.theme.spacing.lg};
+  gap: ${props => props.theme.spacing.md};
   height: 100%;
   overflow-y: auto;
   padding-bottom: 20px;
@@ -29,7 +34,7 @@ const HeroContent = styled.div`
   border-radius: ${props => props.theme.borderRadius.xl};
   overflow: hidden;
   background-color: white;
-  padding: ${props => props.theme.spacing.xl};
+  padding: ${props => props.theme.spacing.lg};
   display: flex;
   flex-direction: column;
   border: 1px solid ${props => props.theme.colors.border};
@@ -41,17 +46,17 @@ const HeroText = styled.div`
   z-index: 10;
   
   h1 {
-    font-size: 42px;
+    font-size: 32px;
     font-weight: 800;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     color: ${props => props.theme.colors.text.main};
   }
   
   p {
-    font-size: 15px;
+    font-size: 14px;
     color: ${props => props.theme.colors.text.muted};
-    line-height: 1.6;
-    max-width: 400px;
+    line-height: 1.5;
+    max-width: 380px;
   }
 `;
 
@@ -77,7 +82,7 @@ const InfoBox = styled.div`
 `;
 
 const InfoItem = styled.div`
-  padding: ${props => props.theme.spacing.lg};
+  padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.lg};
   display: flex;
   align-items: flex-start;
   gap: ${props => props.theme.spacing.md};
@@ -106,7 +111,7 @@ const ToastContent = styled.div`
     font-size: 14px;
     font-weight: 700;
     margin-bottom: 4px;
-    color: ${props => props.theme.colors.text.primary};
+    color: ${props => props.theme.colors.text.main};
   }
   p {
     font-size: 12px;
@@ -118,16 +123,16 @@ const ToastContent = styled.div`
 const FormationSection = styled.div`
   background-color: white;
   border-radius: ${props => props.theme.borderRadius.xl};
-  padding: ${props => props.theme.spacing.xl};
+  padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.xl};
   border: 1px solid ${props => props.theme.colors.border};
 `;
 
 const SectionHeader = styled.div`
-  margin-bottom: ${props => props.theme.spacing.xl};
+  margin-bottom: ${props => props.theme.spacing.md};
   h2 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
-    color: ${props => props.theme.colors.text.primary};
+    color: ${props => props.theme.colors.text.main};
   }
 `;
 
@@ -146,16 +151,16 @@ const StepItem = styled.div`
   background-color: #f8fafc;
   border: 1px solid ${props => props.theme.colors.border};
   border-radius: ${props => props.theme.borderRadius.lg};
-  padding: ${props => props.theme.spacing.md};
+  padding: ${props => props.theme.spacing.sm};
 `;
 
 const StepImageContainer = styled.div`
   position: relative;
   width: 100%;
-  aspect-ratio: 4/3;
+  height: 100px;
   border-radius: ${props => props.theme.borderRadius.lg};
   overflow: hidden;
-  margin-bottom: ${props => props.theme.spacing.md};
+  margin-bottom: ${props => props.theme.spacing.sm};
   
   img {
     width: 100%;
@@ -186,7 +191,7 @@ const StepText = styled.div`
     font-size: 14px;
     font-weight: 700;
     margin-bottom: 4px;
-    color: ${props => props.theme.colors.text.primary};
+    color: ${props => props.theme.colors.text.main};
   }
   p {
     font-size: 12px;
@@ -199,6 +204,7 @@ const BottomSection = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: ${props => props.theme.spacing.lg};
+  flex: 1;
 `;
 
 const PathogensContainer = styled.div`
@@ -214,7 +220,7 @@ const PathogensContainer = styled.div`
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 16px;
-    color: ${props => props.theme.colors.text.primary};
+    color: ${props => props.theme.colors.text.main};
   }
   
   .cards-row {
@@ -230,11 +236,11 @@ const PathogenCard = styled.div`
   flex: 1;
   border: 1px solid ${props => props.theme.colors.border};
   border-radius: ${props => props.theme.borderRadius.lg};
-  padding: ${props => props.theme.spacing.sm};
+  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
   
   img {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     border-radius: ${props => props.theme.borderRadius.md};
     object-fit: cover;
   }
@@ -258,7 +264,7 @@ const PathogenCard = styled.div`
 const TakeawayCard = styled.div`
   background-color: #f0f9ff;
   border-radius: ${props => props.theme.borderRadius.xl};
-  padding: ${props => props.theme.spacing.xl};
+  padding: ${props => props.theme.spacing.lg};
   border: 1px solid #bae6fd;
   display: flex;
   flex-direction: column;
@@ -267,8 +273,8 @@ const TakeawayCard = styled.div`
   gap: ${props => props.theme.spacing.md};
   
   .icon-wrapper {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
     background-color: #38bdf8;
     border-radius: 50%;
     display: flex;
@@ -305,7 +311,7 @@ export const Biofilms: React.FC = () => {
         <InfoBox>
           <InfoItem>
             <ToastIconContainer>
-              <Network size={20} />
+              <Search fontSize="medium" />
             </ToastIconContainer>
             <ToastContent>
               <h3>What are Biofilms?</h3>
@@ -402,7 +408,7 @@ export const Biofilms: React.FC = () => {
           <h3>Common Pathogens in Biofilms</h3>
           <div className="cards-row">
             <PathogenCard>
-              <img src="https://placehold.co/150x150?text=S.+aureus" alt="Staphylococcus aureus" />
+              <img src={staphAureus} alt="Staphylococcus aureus" />
               <div>
                 <h4>Staphylococcus aureus <AlertCircle size={14} color="#94a3b8" /></h4>
                 <p>Gram-positive cocci. Common in chronic wounds and difficult to eradicate.</p>
@@ -410,7 +416,7 @@ export const Biofilms: React.FC = () => {
             </PathogenCard>
 
             <PathogenCard>
-              <img src="https://placehold.co/150x150?text=P.+aeruginosa" alt="Pseudomonas aeruginosa" />
+              <img src={pseudoAeruginosa} alt="Pseudomonas aeruginosa" />
               <div>
                 <h4>Pseudomonas aeruginosa <AlertCircle size={14} color="#94a3b8" /></h4>
                 <p>Gram-negative rod. Associated with chronic wounds and biofilm formation.</p>

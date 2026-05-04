@@ -14,6 +14,12 @@ import {
   Info
 } from 'lucide-react';
 
+import hocl1 from '../assets/hocl1.png';
+import hocl2 from '../assets/hocl2.png';
+import hocl3 from '../assets/hocl3.png';
+import hocl4 from '../assets/hocl4.png';
+import hocl5 from '../assets/hocl5.png';
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -111,75 +117,99 @@ const StepGrid = styled.div`
   grid-template-columns: repeat(5, 1fr);
   gap: ${props => props.theme.spacing.lg};
   position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 84px;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background-color: ${props => props.theme.colors.border};
-    z-index: 0;
-  }
 `;
 
 const StepItem = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 16px;
-  z-index: 1;
+  gap: 20px;
+  position: relative;
+`;
+
+const StepHeader = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 48px;
+
+  h5 {
+    font-size: 13px;
+    font-weight: 600;
+    color: ${props => props.theme.colors.text.main};
+    margin: 0;
+    line-height: 1.3;
+    padding-top: 4px;
+  }
 `;
 
 const StepCircle = styled.div`
-  width: 28px;
-  height: 28px;
-  background-color: #3b82f6;
+  width: 24px;
+  height: 24px;
+  background-color: #2563eb;
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  font-weight: 800;
-  border: 4px solid white;
-  box-shadow: 0 0 0 1px #3b82f633;
+  font-weight: 700;
+  flex-shrink: 0;
 `;
 
-const StepIconWrapper = styled.div`
-  width: 120px;
-  height: 80px;
-  background-color: #f1f5f9;
-  border: 1px dashed ${props => props.theme.colors.border};
-  border-radius: ${props => props.theme.borderRadius.lg};
+const ImageContainer = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${props => props.theme.colors.primary};
-  
-  /* Diagonal stripes effect */
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(0,0,0,0.02) 10px,
-    rgba(0,0,0,0.02) 20px
-  );
+  width: 100%;
+`;
+
+const StepIconWrapper = styled.div`
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: transparent;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+`;
+
+const StepImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const DashedArrow = styled.div`
+  position: absolute;
+  top: 50%;
+  right: -25px; /* Adjust based on your gap */
+  width: 30px;
+  height: 2px;
+  background-image: linear-gradient(to right, #0f172a 50%, transparent 50%);
+  background-size: 6px 100%;
+  transform: translateY(-50%);
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    top: -3.5px;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #0f172a;
+    border-right: 2px solid #0f172a;
+    transform: rotate(45deg);
+  }
 `;
 
 const StepInfo = styled.div`
-  h5 {
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    color: ${props => props.theme.colors.text.main};
-  }
   p {
-    font-size: 11px;
+    font-size: 12px;
     color: ${props => props.theme.colors.text.muted};
-    line-height: 1.4;
+    line-height: 1.5;
   }
 `;
 
@@ -258,19 +288,24 @@ export const Solution: React.FC = () => {
 
         <StepGrid>
           {[
-            { id: 1, title: 'HOCl contacts microbes', desc: 'HOCl penetrates the microbial cell.', icon: Droplet },
-            { id: 2, title: 'Oxidative damage', desc: 'Cell wall components are damaged.', icon: Sparkles },
-            { id: 3, title: 'Disruption of membrane', desc: 'Essential structures and DNA are impaired.', icon: LayoutGrid },
-            { id: 4, title: 'Microbial breakdown', desc: 'Microorganisms are inactivated; burden reduced.', icon: Minus },
-            { id: 5, title: 'Cleaner wound environment', desc: 'Supports a healthier wound environment.', icon: Wind },
-          ].map((step) => (
+            { id: 1, title: 'HOCl contacts microbes', desc: 'HOCl penetrates the microbial cell.', image: hocl1 },
+            { id: 2, title: 'Oxidative damage to cell walls', desc: 'HOCl oxidizes cell wall components.', image: hocl2 },
+            { id: 3, title: 'Disruption of membrane, proteins & DNA', desc: 'Essential structures are damaged and functions are impaired.', image: hocl3 },
+            { id: 4, title: 'Microbial breakdown / reduced burden', desc: 'Microorganisms are inactivated and burden is reduced.', image: hocl4 },
+            { id: 5, title: 'Cleaner wound environment', desc: 'Supports a healthier wound environment for healing.', image: hocl5 },
+          ].map((step, index) => (
             <StepItem key={step.id}>
-              <StepCircle>{step.id}</StepCircle>
-              <StepIconWrapper>
-                <step.icon size={32} />
-              </StepIconWrapper>
-              <StepInfo>
+              <StepHeader>
+                <StepCircle>{step.id}</StepCircle>
                 <h5>{step.title}</h5>
+              </StepHeader>
+              <ImageContainer>
+                <StepIconWrapper>
+                  <StepImage src={step.image} alt={step.title} />
+                </StepIconWrapper>
+                {index < 4 && <DashedArrow />}
+              </ImageContainer>
+              <StepInfo>
                 <p>{step.desc}</p>
               </StepInfo>
             </StepItem>
