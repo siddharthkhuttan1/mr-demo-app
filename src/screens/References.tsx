@@ -146,33 +146,39 @@ export const References: React.FC<ReferencesProps> = ({ onNavigate }) => {
   const references = [
     {
       id: 1,
-      type: 'Clinical Study',
-      citation: 'Wang, L., Bassiri, M., Najafi, R., et al. (2007). <span>Hypochlorous acid as a potential wound care agent.</span> Journal of Burns and Wounds, 6, e5.',
-      link: '#'
+      type: 'Biochemistry',
+      citation: 'McKenna SM & Davies KJ. <span>The biology of reactive oxygen species.</span> Biochem J. 1988 254:685. [PMID: 2848494]',
+      link: 'https://pubmed.ncbi.nlm.nih.gov/2848494/'
     },
     {
       id: 2,
-      type: 'Review',
-      citation: 'Dissemond, J., et al. (2020). <span>Hypochlorous acid for the treatment of chronic wounds.</span> Journal of Wound Care, 29(Sup10), S4-S8.',
-      link: '#'
+      type: 'Biofilm Research',
+      citation: 'James GA et al. <span>Biofilms in chronic wounds.</span> Wound Repair Regen. 2008 16:37. [PMID: 18086294]',
+      link: 'https://pubmed.ncbi.nlm.nih.gov/18086294/'
     },
     {
       id: 3,
-      type: 'Laboratory Study',
-      citation: 'Sakarya, S., Gunay, N., Karakulak, M., et al. (2014). <span>Hypochlorous acid: an ideal wound care agent with powerful bactericidal, antibiofilm, and wound healing potency.</span> Wounds: a compendium of clinical research and practice, 26(12), 342-350.',
-      link: '#'
+      type: 'Clinical Study',
+      citation: 'Wang L et al. <span>Hypochlorous acid as a potential wound care agent.</span> J Burns Wounds. 2007 6:e5. [PMID: 17492050]',
+      link: 'https://pubmed.ncbi.nlm.nih.gov/17492050/'
     },
     {
       id: 4,
-      type: 'Guidelines',
-      citation: 'World Union of Wound Healing Societies (WUWHS). (2020). <span>Strategies to prevent and manage bacterial burden and biofilm.</span> Florence, Italy.',
-      link: '#'
+      type: 'Pathology',
+      citation: 'Leibovich SJ & Ross R. <span>The role of the macrophage in wound repair.</span> Am J Pathol. 1975 78:71. [PMID: 1109560]',
+      link: 'https://pubmed.ncbi.nlm.nih.gov/1109560/'
     },
     {
       id: 5,
-      type: 'Case Series',
-      citation: 'Nerandzic, M. M., et al. (2015). <span>Inactivation of bacterial spores and biofilms by a stabilized hypochlorous acid solution.</span> American Journal of Infection Control, 43(8), 885-891.',
-      link: '#'
+      type: 'Dermatology',
+      citation: 'Werner S et al. <span>Regulation of wound healing by growth factors and cytokines.</span> J Invest Dermatol. 2007 127:998. [PMID: 17435785]',
+      link: 'https://pubmed.ncbi.nlm.nih.gov/17435785/'
+    },
+    {
+      id: 6,
+      type: 'Clinical Study',
+      citation: 'Serhan Sakarya et al. <span>Hypochlorous Acid: An Ideal Wound Care Agent.</span> Wounds. 2014 26:342. [PMID: 25785777]',
+      link: 'https://pubmed.ncbi.nlm.nih.gov/25785777/'
     }
   ];
 
