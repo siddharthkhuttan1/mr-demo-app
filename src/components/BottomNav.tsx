@@ -76,15 +76,23 @@ const IconButton = styled.button`
   height: 32px;
   border-radius: 50%;
   border: 1px solid ${props => props.theme.colors.border};
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   color: ${props => props.theme.colors.text.muted};
   transition: ${props => props.theme.transitions.default};
+  cursor: pointer;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: ${props => props.theme.colors.background.main};
     color: ${props => props.theme.colors.primary};
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background-color: ${props => props.theme.colors.background.main};
   }
 `;
 
@@ -116,7 +124,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentSection, onNavigate
 
   return (
     <BottomNavContainer>
-      <IconButton onClick={handlePrev}>
+      <IconButton onClick={handlePrev} disabled={currentIndex === 0}>
         <ChevronLeft size={18} />
       </IconButton>
 
@@ -136,7 +144,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentSection, onNavigate
         </StepList>
       </NavContent>
 
-      <IconButton onClick={handleNext}>
+      <IconButton onClick={handleNext} disabled={currentIndex === steps.length - 1}>
         <ChevronRight size={18} />
       </IconButton>
     </BottomNavContainer>

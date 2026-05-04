@@ -27,15 +27,33 @@ const Header = styled.div`
     color: ${props => props.theme.colors.primary};
     margin-bottom: 4px;
   }
+`;
+
+const HeroContent = styled.div`
+  border-radius: ${props => props.theme.borderRadius.xl};
+  overflow: hidden;
+  background-color: white;
+  padding: ${props => props.theme.spacing.lg};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid ${props => props.theme.colors.border};
+  flex-shrink: 0;
+`;
+
+const HeroText = styled.div`
   h1 {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 800;
-    margin-bottom: 4px;
+    margin-bottom: 12px;
+    color: ${props => props.theme.colors.text.main};
   }
+  
   p {
-    font-size: 15px;
+    font-size: 14px;
     color: ${props => props.theme.colors.text.muted};
-    max-width: 800px;
+    line-height: 1.5;
+    max-width: 600px;
   }
 `;
 
@@ -184,6 +202,8 @@ const TimelineSection = styled(Card)`
   display: flex;
   flex-direction: column;
   gap: ${props => props.theme.spacing.lg};
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
 `;
 
 const TimelineHeader = styled.div`
@@ -206,7 +226,7 @@ const TimelineTrack = styled.div`
     left: 70px;
     right: 70px;
     height: 3px;
-    background-color: #e2e8f0;
+    background-color: white;
     z-index: 0;
   }
 
@@ -214,7 +234,7 @@ const TimelineTrack = styled.div`
     position: absolute;
     top: 58px;
     left: 70px;
-    width: 60%;
+    width: calc(100% - 140px);
     height: 3px;
     background-color: ${props => props.theme.colors.primary};
     z-index: 1;
@@ -253,14 +273,25 @@ const TimelineNode = styled.div<{ active?: boolean, completed?: boolean }>`
   }
 `;
 
-export const Case: React.FC = () => {
+import { ContinueButton } from '../components/common/ContinueButton';
+
+interface CaseProps {
+  onNavigate: (section: string) => void;
+}
+
+export const Case: React.FC<CaseProps> = ({ onNavigate }) => {
   return (
     <Container>
       <Header>
         <h2>Section 07</h2>
-        <h1>Case Highlight</h1>
-        <p>A real-world case showing the impact of HOCl-based wound care.</p>
       </Header>
+
+      <HeroContent>
+        <HeroText>
+          <h1>Case Highlight</h1>
+          <p>A real-world case showing the impact of HOCl-based wound care.</p>
+        </HeroText>
+      </HeroContent>
 
       <MainGrid>
         <PatientSummary>
@@ -349,7 +380,6 @@ export const Case: React.FC = () => {
       <TimelineSection>
         <TimelineHeader>
           <h4>Healing Journey Timeline (Weeks)</h4>
-          <span>Drag the marker to scrub progress</span>
         </TimelineHeader>
         <TimelineTrack>
           <div className="progress"></div>
@@ -362,7 +392,7 @@ export const Case: React.FC = () => {
               { week: 12, title: 'Near Closure', desc: 'Wound almost completely closed' },
               { week: 15, title: 'Outcome', desc: 'Near-complete closure, limb preserved' },
             ].map((node, i) => (
-              <TimelineNode key={i} completed={i < 3} active={i === 3}>
+              <TimelineNode key={i} completed={true} active={true}>
                 <div className="label-group">
                   <span className="week">Week {node.week}</span>
                 </div>
@@ -375,11 +405,16 @@ export const Case: React.FC = () => {
             ))}
           </TimelineNodes>
         </TimelineTrack>
-        <div style={{ padding: '12px', backgroundColor: '#eff6ff', borderRadius: '8px', border: '1px solid #dbeafe', display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ padding: '12px', backgroundColor: 'white', borderRadius: '8px', border: '1px solid #dbeafe', display: 'flex', alignItems: 'center', gap: '10px' }}>
           <Info size={14} color="#3b82f6" />
           <span style={{ fontSize: '11px', color: '#64748b' }}>Clinical images should be used only with appropriate patient consent and permissions.</span>
         </div>
       </TimelineSection>
+      {/* <ContinueButton
+        to="conclusion"
+        label="Conclusion & Takeaways"
+        onNavigate={onNavigate}
+      /> */}
     </Container>
   );
 };

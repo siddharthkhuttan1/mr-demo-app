@@ -26,21 +26,21 @@ const App: React.FC = () => {
       case 'home':
         return <Home onNavigate={handleNavigate} />;
       case 'challenge':
-        return <Challenge />;
+        return <Challenge onNavigate={handleNavigate} />;
       case 'biofilms':
-        return <Biofilms />;
+        return <Biofilms onNavigate={handleNavigate} />;
       case 'solution':
-        return <Solution />;
+        return <Solution onNavigate={handleNavigate} />;
       case 'protocol':
-        return <Protocol />;
+        return <Protocol onNavigate={handleNavigate} />;
       case 'results':
-        return <Results />;
+        return <Results onNavigate={handleNavigate} />;
       case 'case':
-        return <Case />;
+        return <Case onNavigate={handleNavigate} />;
       case 'conclusion':
-        return <Conclusion />;
+        return <Conclusion onNavigate={handleNavigate} />;
       case 'references':
-        return <References />;
+        return <References onNavigate={handleNavigate} />;
       default:
         return (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: '#94a3b8' }}>

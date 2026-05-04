@@ -12,12 +12,17 @@ import {
   Info,
   ShieldCheck
 } from 'lucide-react';
+import hocl2partImg from '../assets/hocl2part.png';
+import honeyImg from '../assets/honey.png';
+import hoclSolnImg from '../assets/hocl-soln.png';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${props => props.theme.spacing.lg};
   height: 100%;
+  overflow-y: auto;
+  padding-bottom: ${props => props.theme.spacing.xl};
 `;
 
 const Header = styled.div`
@@ -28,15 +33,33 @@ const Header = styled.div`
     color: ${props => props.theme.colors.primary};
     margin-bottom: 4px;
   }
+`;
+
+const HeroContent = styled.div`
+  border-radius: ${props => props.theme.borderRadius.xl};
+  overflow: hidden;
+  background-color: white;
+  padding: ${props => props.theme.spacing.lg};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid ${props => props.theme.colors.border};
+  flex-shrink: 0;
+`;
+
+const HeroText = styled.div`
   h1 {
     font-size: 32px;
     font-weight: 800;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    color: ${props => props.theme.colors.text.main};
   }
+  
   p {
-    font-size: 15px;
+    font-size: 14px;
     color: ${props => props.theme.colors.text.muted};
-    max-width: 800px;
+    line-height: 1.5;
+    max-width: 600px;
   }
 `;
 
@@ -166,7 +189,7 @@ const FormulaComponent = styled.div`
 `;
 
 const ResultBox = styled.div`
-  background-color: #f1f5f9;
+  // background-color: #f1f5f9;
   border-radius: ${props => props.theme.borderRadius.md};
   padding: 12px;
   display: flex;
@@ -174,13 +197,12 @@ const ResultBox = styled.div`
   align-items: center;
   gap: 8px;
   border: 1px solid ${props => props.theme.colors.border};
-  background-image: repeating-linear-gradient(135deg, transparent, transparent 15px, rgba(59,130,246,0.03) 15px, rgba(59,130,246,0.03) 30px);
+  //background-image: repeating-linear-gradient(135deg, transparent, transparent 15px, rgba(59,130,246,0.03) 15px, rgba(59,130,246,0.03) 30px);
 
   span {
     font-size: 12px;
     font-weight: 700;
     color: ${props => props.theme.colors.primary};
-    text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 `;
@@ -257,14 +279,25 @@ const TreatmentStep = styled.div`
   }
 `;
 
-export const Protocol: React.FC = () => {
+// import { ContinueButton } from '../components/common/ContinueButton';
+
+interface ProtocolProps {
+  onNavigate: (section: string) => void;
+}
+
+export const Protocol: React.FC<ProtocolProps> = ({ onNavigate }) => {
   return (
     <Container>
       <Header>
-        <h2>Section 05</h2>
-        <h1>Study Design & Methodology</h1>
-        <p>A prospective clinical study evaluating the effect of Hypochlorous Acid (HOCl) in open wound healing.</p>
+        <h2>Section 04</h2>
       </Header>
+
+      <HeroContent>
+        <HeroText>
+          <h1>Study Design & Methodology</h1>
+          <p>A prospective clinical study evaluating the effect of Hypochlorous Acid (HOCl) in open wound healing.</p>
+        </HeroText>
+      </HeroContent>
 
       <TopGrid>
         <Card>
@@ -307,26 +340,24 @@ export const Protocol: React.FC = () => {
           </CardTitle>
           <FormulationView>
             <p style={{ fontSize: '13px', color: '#64748b' }}>HOCl used in ready-to-use form. Study protocol included:</p>
-            <div className="badge">2 parts HOCl + 1 part honey</div>
+            <div className="badge">2 parts HOCl + 1 part Honey</div>
 
             <FormulaGrid>
               <FormulaComponent>
-                <div className="box"><FlaskConical size={32} /></div>
-                <span>2 parts HOCl</span>
+                <img src={hocl2partImg} alt="2 parts HOCl" style={{ height: '85px', objectFit: 'contain' }} />
+                <span style={{ fontSize: "14px" }}>2 parts HOCl</span>
               </FormulaComponent>
               <span className="operator">+</span>
               <FormulaComponent>
-                <div className="box" style={{ color: '#f59e0b' }}><Hexagon size={32} /></div>
-                <span>1 part honey</span>
+                <img src={honeyImg} alt="1 part honey" style={{ height: '85px', objectFit: 'contain' }} />
+                <span style={{ fontSize: "14px" }}>1 part Honey</span>
               </FormulaComponent>
+              <span className="operator">=</span>
+              <ResultBox style={{ padding: '12px 16px', margin: 0 }}>
+                <img src={hoclSolnImg} alt="HOCl + Honey study protocol" style={{ height: '100px', objectFit: 'contain' }} />
+                <span style={{ fontSize: "14px" }}>HOCl + Honey</span>
+              </ResultBox>
             </FormulaGrid>
-
-            <div className="operator" style={{ textAlign: 'center', marginBottom: '10px' }}>=</div>
-
-            <ResultBox>
-              <Droplet size={24} color="#3b82f6" />
-              <span>HOCl + Honey study protocol</span>
-            </ResultBox>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '10px', fontSize: '11px', color: '#94a3b8' }}>
               <Info size={14} />
@@ -360,6 +391,11 @@ export const Protocol: React.FC = () => {
           ))}
         </TreatmentGrid>
       </TreatmentSection>
+      {/* <ContinueButton 
+        to="results" 
+        label="Study Results & Stats" 
+        onNavigate={onNavigate} 
+      /> */}
     </Container>
   );
 };

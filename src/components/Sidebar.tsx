@@ -15,7 +15,7 @@ import MenuBook from '@mui/icons-material/MenuBook';
 const SidebarContainer = styled.nav`
   width: 100px;
   height: 100vh;
-  background-color: ${props => props.theme.colors.background.sidebar};
+  background-color: #ffffff;
   border-right: 1px solid ${props => props.theme.colors.border};
   display: flex;
   flex-direction: column;
@@ -75,10 +75,8 @@ const IconWrapper = styled.div<NavItemProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${props => props.active
-    ? `linear-gradient(135deg, ${props.theme.colors.primary} 0%, ${props.theme.colors.primaryLight} 100%)`
-    : 'transparent'};
-  color: ${props => props.active ? 'white' : 'inherit'};
+  background: transparent;
+  color: ${props => props.active ? props.theme.colors.primary : 'inherit'};
   border-radius: ${props => props.theme.borderRadius.md};
   transition: ${props => props.theme.transitions.default};
 `;

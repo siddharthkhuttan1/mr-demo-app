@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Play, FileText, User, ChevronRight, Droplet, Clock, Users, FlaskConical, BarChart2, CheckCircle } from 'lucide-react';
-import productImg from '../assets/vida-med-super-oxidized.png';
+import productImg from '../assets/vidamed1.png';
 
 const HomeContainer = styled.div`
   display: flex;
@@ -21,9 +21,9 @@ const HeroSection = styled.div`
   grid-template-columns: 1fr 1.3fr;
   gap: ${props => props.theme.spacing.xl};
   align-items: center;
-  min-height: 440px;
+  min-height: 100%;
   background: linear-gradient(135deg, #eef7ff 0%, #d4eaf7 100%);
-  margin: -${props => props.theme.spacing.lg} -${props => props.theme.spacing.lg} 0 -${props => props.theme.spacing.lg};
+  margin: -${props => props.theme.spacing.md} -${props => props.theme.spacing.md} -${props => props.theme.spacing.md} -${props => props.theme.spacing.md};
   padding: ${props => props.theme.spacing.xl} ${props => props.theme.spacing.xl};
   border-bottom: 1px solid ${props => props.theme.colors.border};
 `;
@@ -139,31 +139,31 @@ const DiagramText = styled.div`
 `;
 
 const ProductCard = styled.div`
-  background: white;
+  background: transparent;
   border-radius: 32px;
   padding: 32px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+  // box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 380px;
+  height: 560px;
   width: 280px;
   position: relative;
   
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-  }
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   inset: 0;
+  //   border-radius: 32px;
+  //   border: 1px solid rgba(255, 255, 255, 0.5);
+  // }
 `;
 
 const ProductImage = styled.img`
   width: auto;
   height: 100%;
   object-fit: contain;
-  animation: ${floatAnimation} 4s ease-in-out infinite;
+  // animation: ${floatAnimation} 4s ease-in-out infinite;
 `;
 
 const WalkthroughGrid = styled.div`
@@ -340,7 +340,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         </VisualContent>
       </HeroSection>
 
-      <WalkthroughGrid>
+      {/* <WalkthroughGrid>
         <GridHeader>
           <GridTitle>
             <h3>Walkthrough</h3>
@@ -365,7 +365,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             </WalkthroughCard>
           ))}
         </CardGrid>
-      </WalkthroughGrid>
+      </WalkthroughGrid> */}
     </HomeContainer>
   );
 };

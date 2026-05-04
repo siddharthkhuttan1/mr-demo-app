@@ -6,9 +6,9 @@ import Search from '@mui/icons-material/Search';
 
 import biofilm1 from '../assets/biofilm-1.png';
 import biofilm2 from '../assets/biofilm-2.png';
-import biofilm3 from '../assets/biofilm-3.png';
-import biofilm4 from '../assets/biofilm-4.png';
-import biofilm5 from '../assets/biofilm-5.png';
+import biofilm3 from '../assets/biofilm-3new1.png';
+import biofilm4 from '../assets/biofilm-4new.png';
+import biofilm5 from '../assets/biofilm-5new.png';
 import staphAureus from '../assets/Staphylococcus_aureus.jpg';
 import pseudoAeruginosa from '../assets/Pseudomonas-Aeruginosa.jpg';
 
@@ -209,53 +209,59 @@ const BottomSection = styled.div`
 const PathogensContainer = styled.div`
   background-color: white;
   border-radius: ${props => props.theme.borderRadius.xl};
-  padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.xl};
+  padding: ${props => props.theme.spacing.xl};
   border: 1px solid ${props => props.theme.colors.border};
   display: flex;
   flex-direction: column;
   justify-content: center;
   
   h3 {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     color: ${props => props.theme.colors.text.main};
   }
   
   .cards-row {
     display: flex;
-    gap: ${props => props.theme.spacing.lg};
+    gap: ${props => props.theme.spacing.xl};
+    flex: 1;
   }
 `;
 
 const PathogenCard = styled.div`
   display: flex;
   align-items: center;
-  gap: ${props => props.theme.spacing.md};
+  gap: ${props => props.theme.spacing.lg};
   flex: 1;
   border: 1px solid ${props => props.theme.colors.border};
-  border-radius: ${props => props.theme.borderRadius.lg};
-  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
+  border-radius: ${props => props.theme.borderRadius.xl};
+  padding: ${props => props.theme.spacing.lg};
+  background-color: #f8fafc;
   
   img {
-    width: 48px;
-    height: 48px;
+    width: 72px;
+    height: 72px;
     border-radius: ${props => props.theme.borderRadius.md};
     object-fit: cover;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   }
   
   div {
+    flex: 1;
     h4 {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 700;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+      color: ${props => props.theme.colors.text.main};
     }
     p {
-      font-size: 12px;
+      font-size: 14px;
       color: ${props => props.theme.colors.text.muted};
+      line-height: 1.5;
     }
   }
 `;
@@ -267,7 +273,7 @@ const TakeawayCard = styled.div`
   border: 1px solid #bae6fd;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: ${props => props.theme.spacing.md};
   
@@ -295,9 +301,38 @@ const TakeawayCard = styled.div`
   }
 `;
 
-export const Biofilms: React.FC = () => {
+const Header = styled.div`
+  h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: ${props => props.theme.colors.primary};
+    margin-bottom: 4px;
+  }
+  h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  p {
+    font-size: 16px;
+    color: ${props => props.theme.colors.text.muted};
+    max-width: 800px;
+  }
+`;
+
+// import { ContinueButton } from '../components/common/ContinueButton';
+
+interface BiofilmsProps {
+  onNavigate: (section: string) => void;
+}
+
+export const Biofilms: React.FC<BiofilmsProps> = ({ onNavigate }) => {
   return (
     <Container>
+      <Header>
+        <h2>Section 02</h2>
+      </Header>
       <TopSection>
         <HeroContent>
           <HeroText>
@@ -429,8 +464,8 @@ export const Biofilms: React.FC = () => {
             <Shield sx={{ fontSize: 24 }} />
           </div>
           <div>
-            <h3>Key Takeaway</h3>
-            <p>Biofilms protect bacteria from treatment and immune defense, sustain inflammation, and are a major barrier to effective wound healing.</p>
+            <h2>Key Takeaway</h2>
+            <p style={{ fontSize: '16px', marginTop: "16px" }}>Biofilms protect bacteria from treatment and immune defense, sustain inflammation, and are a major barrier to effective wound healing.</p>
           </div>
         </TakeawayCard>
       </BottomSection>

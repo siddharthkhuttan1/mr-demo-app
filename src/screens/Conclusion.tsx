@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { 
-  Droplet, 
-  BarChart2, 
-  Users, 
-  User, 
-  Shield, 
+import {
+  Droplet,
+  BarChart2,
+  Users,
+  User,
+  Shield,
   Search,
   FileText,
   Download,
@@ -31,15 +31,33 @@ const Header = styled.div`
     color: ${props => props.theme.colors.primary};
     margin-bottom: 4px;
   }
+`;
+
+const HeroContent = styled.div`
+  border-radius: ${props => props.theme.borderRadius.xl};
+  overflow: hidden;
+  background-color: white;
+  padding: ${props => props.theme.spacing.lg};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid ${props => props.theme.colors.border};
+  flex-shrink: 0;
+`;
+
+const HeroText = styled.div`
   h1 {
     font-size: 32px;
     font-weight: 800;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    color: ${props => props.theme.colors.text.main};
   }
+  
   p {
-    font-size: 15px;
+    font-size: 14px;
     color: ${props => props.theme.colors.text.muted};
-    max-width: 800px;
+    line-height: 1.5;
+    max-width: 600px;
   }
 `;
 
@@ -80,14 +98,14 @@ const SummaryCard = styled(Card)`
     justify-content: center;
   }
 
-  h4 { font-size: 14px; font-weight: 800; color: ${props => props.theme.colors.primary}; }
+  h3 { font-size: 14px; font-weight: 800; color: ${props => props.theme.colors.primary}; }
   p { font-size: 12px; color: ${props => props.theme.colors.text.muted}; line-height: 1.5; }
 `;
 
 const RecommendationCard = styled(SummaryCard)`
   border-bottom-color: #4f46e5;
   .icon-box { color: #4f46e5; }
-  h4 { color: #4f46e5; }
+  h3 { color: #4f46e5; }
   
   ul {
     padding-left: 18px;
@@ -141,32 +159,46 @@ const CTAButton = styled.button<{ bgColor: string }>`
   .arrow { flex-shrink: 0; opacity: 0.7; }
 `;
 
-export const Conclusion: React.FC = () => {
+import { ContinueButton } from '../components/common/ContinueButton';
+
+interface ConclusionProps {
+  onNavigate: (section: string) => void;
+}
+
+export const Conclusion: React.FC<ConclusionProps> = ({ onNavigate }) => {
+  const handleAction = (action: string) => {
+    alert(`${action} feature simulated for this demo.`);
+  };
   return (
     <Container>
       <Header>
         <h2>Section 08</h2>
-        <h1>Conclusion & Recommendations</h1>
-        <p>Key takeaways and next steps from this prospective study on HOCl in open wound healing.</p>
       </Header>
+
+      <HeroContent>
+        <HeroText>
+          <h1>Conclusion & Recommendations</h1>
+          <p>Key takeaways and next steps from this prospective study on HOCl in open wound healing.</p>
+        </HeroText>
+      </HeroContent>
 
       <div>
         <SectionLabel>Study Summary</SectionLabel>
         <SummaryGrid>
           <SummaryCard>
             <div className="icon-box"><Droplet size={20} /></div>
-            <h4>HOCl Demonstrated Potential</h4>
-            <p>Stabilized HOCl demonstrated potential as a wound care agent in this prospective case series.</p>
+            <h3 style={{ fontSize: "16px" }}>HOCl Demonstrated Potential</h3>
+            <p style={{ fontSize: "14px" }}>Stabilized HOCl demonstrated potential as a wound care agent in this prospective case series.</p>
           </SummaryCard>
           <SummaryCard>
             <div className="icon-box"><BarChart2 size={20} /></div>
-            <h4>Observed Outcomes</h4>
-            <p>Observed outcomes included infection clearance, wound reduction, final wound closure, and symptom relief.</p>
+            <h3 style={{ fontSize: "18px" }}>Observed Outcomes</h3>
+            <p style={{ fontSize: "14px" }}>Observed outcomes included infection clearance, wound reduction, final wound closure, and symptom relief.</p>
           </SummaryCard>
           <SummaryCard>
             <div className="icon-box"><Users size={20} /></div>
-            <h4>Need for Future Studies</h4>
-            <p>The results support the need for future large-scale, multi-center studies to validate and standardize HOCl-based wound care.</p>
+            <h3 style={{ fontSize: "18px" }}>Need for Future Studies</h3>
+            <p style={{ fontSize: "14px" }}>The results support the need for future large-scale, multi-center studies to validate and standardize HOCl-based wound care.</p>
           </SummaryCard>
         </SummaryGrid>
       </div>
@@ -176,56 +208,61 @@ export const Conclusion: React.FC = () => {
         <SummaryGrid>
           <RecommendationCard>
             <div className="icon-box"><User size={20} /></div>
-            <h4>1. Clinical Integration</h4>
+            <h3 style={{ fontSize: "18px" }}>1. Clinical Integration</h3>
             <ul>
-              <li>Consider stabilized HOCl as a first-line option for biofilm-associated chronic wounds.</li>
-              <li>Integrate into standard wound care protocols.</li>
+              <li style={{ fontSize: "14px" }}>Consider stabilized HOCl as a first-line option for biofilm-associated chronic wounds.</li>
+              <li style={{ fontSize: "14px" }}>Integrate into standard wound care protocols.</li>
             </ul>
           </RecommendationCard>
           <RecommendationCard>
             <div className="icon-box"><Shield size={20} /></div>
-            <h4>2. Targeted Application</h4>
+            <h3 style={{ fontSize: "18px" }}>2. Targeted Application</h3>
             <ul>
-              <li>Highly recommended for diabetic foot ulcers and venous leg ulcers.</li>
-              <li>Supports infection control and wound healing.</li>
+              <li style={{ fontSize: "14px" }}>Highly recommended for diabetic foot ulcers and venous leg ulcers.</li>
+              <li style={{ fontSize: "14px" }}>Supports infection control and wound healing.</li>
             </ul>
           </RecommendationCard>
           <RecommendationCard>
             <div className="icon-box"><Search size={20} /></div>
-            <h4>3. Future Directions</h4>
+            <h3 style={{ fontSize: "18px" }}>3. Future Directions</h3>
             <ul>
-              <li>Initiate large-scale, multi-center clinical studies.</li>
-              <li>Establish standardized treatment protocols and long-term outcomes.</li>
+              <li style={{ fontSize: "14px" }}>Initiate large-scale, multi-center clinical studies.</li>
+              <li style={{ fontSize: "14px" }}>Establish standardized treatment protocols and long-term outcomes.</li>
             </ul>
           </RecommendationCard>
         </SummaryGrid>
       </div>
 
       <EvidenceSection>
-        <h3>Explore the Full Evidence</h3>
+        <h3 style={{ fontSize: "18px" }}>Explore the Full Evidence</h3>
         <CTAContainer>
-          <CTAButton bgColor="#2563eb">
+          <CTAButton bgColor="#2563eb" onClick={() => handleAction('View Full Study')}>
             <FileText size={20} className="icon" />
             <span className="label">View Full Study</span>
             <ArrowRight size={18} className="arrow" />
           </CTAButton>
-          <CTAButton bgColor="#2dd4bf">
+          <CTAButton bgColor="#2dd4bf" onClick={() => handleAction('Download Evidence Summary')}>
             <Download size={20} className="icon" />
             <span className="label">Download Evidence Summary</span>
             <ArrowRight size={18} className="arrow" />
           </CTAButton>
-          <CTAButton bgColor="#6366f1">
+          <CTAButton bgColor="#6366f1" onClick={() => handleAction('Request Clinical Discussion')}>
             <MessageSquare size={20} className="icon" />
             <span className="label">Request Clinical Discussion</span>
             <ArrowRight size={18} className="arrow" />
           </CTAButton>
         </CTAContainer>
-        
+
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px', backgroundColor: '#f1f5f9', borderRadius: '8px', width: '100%', marginTop: '8px' }}>
           <Info size={14} color="#64748b" />
           <span style={{ fontSize: '11px', color: '#64748b' }}>For educational and scientific communication purposes only. Not intended as medical advice. Treatment decisions should be made by qualified healthcare professionals.</span>
         </div>
       </EvidenceSection>
-    </Container>
+      {/* <ContinueButton
+        to="references"
+        label="Scientific References"
+        onNavigate={onNavigate}
+      /> */}
+    </Container >
   );
 };

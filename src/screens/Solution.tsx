@@ -25,28 +25,48 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  margin-bottom: ${props => props.theme.spacing.sm};
+  h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: ${props => props.theme.colors.primary};
+    margin-bottom: 4px;
+  }
+`;
 
-  .text-content {
-    h2 {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: ${props => props.theme.colors.primary};
-      margin-bottom: 4px;
-    }
-    h1 {
-      font-size: 32px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-    p {
-      font-size: 15px;
-      color: ${props => props.theme.colors.text.muted};
-      max-width: 600px;
-    }
+const TopSection = styled.div`
+  display: flex;
+  gap: ${props => props.theme.spacing.lg};
+  align-items: stretch;
+`;
+
+const HeroContent = styled.div`
+  flex: 1;
+  border-radius: ${props => props.theme.borderRadius.xl};
+  overflow: hidden;
+  background-color: white;
+  padding: ${props => props.theme.spacing.lg};
+  display: flex;
+  flex-direction: column;
+  border: 1px solid ${props => props.theme.colors.border};
+`;
+
+const HeroText = styled.div`
+  h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: ${props => props.theme.colors.text.main};
+    
+    span { color: ${props => props.theme.colors.primary}; }
+  }
+  
+  p {
+    font-size: 14px;
+    color: ${props => props.theme.colors.text.muted};
+    line-height: 1.5;
+    max-width: 450px;
   }
 `;
 
@@ -142,7 +162,7 @@ const StepHeader = styled.div`
 const StepCircle = styled.div`
   width: 24px;
   height: 24px;
-  background-color: #2563eb;
+  background-color: #0eaef4;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -220,7 +240,7 @@ const SmallCard = styled.div<{ accent: string }>`
   background-color: white;
   border: 1px solid ${props => props.theme.colors.border};
   border-radius: ${props => props.theme.borderRadius.lg};
-  padding: 12px;
+  padding: 20px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -251,15 +271,40 @@ const SmallCard = styled.div<{ accent: string }>`
   }
 `;
 
-export const Solution: React.FC = () => {
+const FooterSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${props => props.theme.spacing.md};
+`;
+
+const FooterHeading = styled.h3`
+  font-size: 18px;
+  font-weight: 700;
+  color: ${props => props.theme.colors.text.main};
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+`;
+
+
+interface SolutionProps {
+  onNavigate: (section: string) => void;
+}
+
+export const Solution: React.FC<SolutionProps> = ({ onNavigate }) => {
   return (
     <Container>
       <Header>
-        <div className="text-content">
-          <h2>Section 04</h2>
-          <h1>The Solution: <span>Hypochlorous Acid</span></h1>
-          <p>A naturally occurring molecule with broad-spectrum antimicrobial activity that may support wound healing.</p>
-        </div>
+        <h2>Section 03</h2>
+      </Header>
+
+      <TopSection>
+        <HeroContent>
+          <HeroText>
+            <h1>The Solution: <span>Hypochlorous Acid</span></h1>
+            <p>A naturally occurring substance with broad-spectrum antimicrobial activity that may support wound healing.</p>
+          </HeroText>
+        </HeroContent>
 
         <HighlightBox>
           <h4>
@@ -272,11 +317,11 @@ export const Solution: React.FC = () => {
             <li><CheckCircle size={14} color="#10b981" /> May support wound healing as part of wound care</li>
           </ul>
         </HighlightBox>
-      </Header>
+      </TopSection>
 
       <DiagramSection>
         <DiagramHeader>
-          <h3>How Hypochlorous Acid (HOCl) works</h3>
+          <h3>How Hypochlorous Acid (HOCl) works?</h3>
           <div className="info">
             <Info size={14} />
             mechanism overview
@@ -313,23 +358,23 @@ export const Solution: React.FC = () => {
       <FooterGrid>
         <SmallCard accent="#3b82f6">
           <div className="icon"><ShieldCheck size={18} /></div>
-          <span>Broad-spectrum antimicrobial activity</span>
+          <span style={{ fontSize: "14px", textAlign: "center" }}>Broad-spectrum antimicrobial activity</span>
         </SmallCard>
         <SmallCard accent="#10b981">
           <div className="icon"><Zap size={18} /></div>
-          <span>Helps disrupt biofilms</span>
+          <span style={{ fontSize: "14px", textAlign: "center" }}>Helps disrupt biofilms</span>
         </SmallCard>
         <SmallCard accent="#94a3b8">
           <div className="icon"><Minus size={18} /></div>
-          <span>Helps reduce microbial burden</span>
+          <span style={{ fontSize: "14px", textAlign: "center" }}>Helps reduce microbial burden</span>
         </SmallCard>
         <SmallCard accent="#22c55e">
           <div className="icon"><RefreshCcw size={18} /></div>
-          <span>Supports infection control</span>
+          <span style={{ fontSize: "14px", textAlign: "center" }}>Supports infection control</span>
         </SmallCard>
         <SmallCard accent="#f43f5e">
           <div className="icon"><Heart size={18} /></div>
-          <span>May support wound healing as part of care</span>
+          <span style={{ fontSize: "14px", textAlign: "center" }}>May support wound healing as part of care</span>
         </SmallCard>
       </FooterGrid>
     </Container>

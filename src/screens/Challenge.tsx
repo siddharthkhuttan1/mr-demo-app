@@ -22,6 +22,8 @@ const Container = styled.div`
   flex-direction: column;
   gap: ${props => props.theme.spacing.xl};
   height: 100%;
+  overflow-y: auto;
+  padding-bottom: ${props => props.theme.spacing.xl};
 `;
 
 const Header = styled.div`
@@ -32,15 +34,33 @@ const Header = styled.div`
     color: ${props => props.theme.colors.primary};
     margin-bottom: 4px;
   }
+`;
+
+const HeroContent = styled.div`
+  border-radius: ${props => props.theme.borderRadius.xl};
+  overflow: hidden;
+  background-color: white;
+  padding: ${props => props.theme.spacing.lg};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid ${props => props.theme.colors.border};
+  flex-shrink: 0;
+`;
+
+const HeroText = styled.div`
   h1 {
     font-size: 32px;
     font-weight: 800;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    color: ${props => props.theme.colors.text.main};
   }
+  
   p {
-    font-size: 16px;
+    font-size: 14px;
     color: ${props => props.theme.colors.text.muted};
-    max-width: 800px;
+    line-height: 1.5;
+    max-width: 600px;
   }
 `;
 
@@ -258,14 +278,25 @@ const StatCard = styled.div<{ accentColor: string }>`
   }
 `;
 
-export const Challenge: React.FC = () => {
+import { ContinueButton } from '../components/common/ContinueButton';
+
+interface ChallengeProps {
+  onNavigate: (section: string) => void;
+}
+
+export const Challenge: React.FC<ChallengeProps> = ({ onNavigate }) => {
   return (
     <Container>
       <Header>
-        <h2 style={{ color: '#3b82f6' }}>Section 02</h2>
-        <h1 style={{ color: '#1e293b' }}>The Challenge: Chronic Wounds</h1>
-        <p>Chronic wounds result from a complex interaction of local and systemic factors that delay normal healing.</p>
+        <h2>Section 01</h2>
       </Header>
+
+      <HeroContent>
+        <HeroText>
+          <h1>The Challenge: Chronic Wounds</h1>
+          <p>Chronic wounds result from a complex interaction of local and systemic factors that delay normal healing.</p>
+        </HeroText>
+      </HeroContent>
 
       <ContentGrid>
         <FactorColumn>
@@ -385,6 +416,11 @@ export const Challenge: React.FC = () => {
           </div>
         </StatCard>
       </StatsGrid>
+      {/* <ContinueButton
+        to="biofilms"
+        label="Biofilms: The Barrier"
+        onNavigate={onNavigate}
+      /> */}
     </Container>
   );
 };
