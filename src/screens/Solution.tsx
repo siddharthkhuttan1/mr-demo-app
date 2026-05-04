@@ -244,7 +244,7 @@ const SmallCard = styled.div<{ accent: string }>`
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: ${props => props.theme.shadows.sm};
+  // box-shadow: ${props => props.theme.shadows.sm};
   transition: ${props => props.theme.transitions.default};
 
   &:hover {
@@ -272,18 +272,22 @@ const SmallCard = styled.div<{ accent: string }>`
 `;
 
 const FooterSection = styled.div`
+  background-color: white;
+  border: 1px solid ${props => props.theme.colors.border};
+  border-radius: ${props => props.theme.borderRadius.xl};
+  padding: ${props => props.theme.spacing.xl};
   display: flex;
   flex-direction: column;
-  gap: ${props => props.theme.spacing.md};
+  gap: ${props => props.theme.spacing.lg};
+  // box-shadow: ${props => props.theme.shadows.sm};
 `;
 
 const FooterHeading = styled.h3`
   font-size: 18px;
   font-weight: 700;
   color: ${props => props.theme.colors.text.main};
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
+  margin: 0;
+  line-height: 1.2;
 `;
 
 
@@ -355,28 +359,31 @@ export const Solution: React.FC<SolutionProps> = ({ onNavigate }) => {
         </StepGrid>
       </DiagramSection>
 
-      <FooterGrid>
-        <SmallCard accent="#3b82f6">
-          <div className="icon"><ShieldCheck size={18} /></div>
-          <span style={{ fontSize: "14px", textAlign: "center" }}>Broad-spectrum antimicrobial activity</span>
-        </SmallCard>
-        <SmallCard accent="#10b981">
-          <div className="icon"><Zap size={18} /></div>
-          <span style={{ fontSize: "14px", textAlign: "center" }}>Helps disrupt biofilms</span>
-        </SmallCard>
-        <SmallCard accent="#94a3b8">
-          <div className="icon"><Minus size={18} /></div>
-          <span style={{ fontSize: "14px", textAlign: "center" }}>Helps reduce microbial burden</span>
-        </SmallCard>
-        <SmallCard accent="#22c55e">
-          <div className="icon"><RefreshCcw size={18} /></div>
-          <span style={{ fontSize: "14px", textAlign: "center" }}>Supports infection control</span>
-        </SmallCard>
-        <SmallCard accent="#f43f5e">
-          <div className="icon"><Heart size={18} /></div>
-          <span style={{ fontSize: "14px", textAlign: "center" }}>May support wound healing as part of care</span>
-        </SmallCard>
-      </FooterGrid>
+      <FooterSection>
+        <FooterHeading>Why HOCl?</FooterHeading>
+        <FooterGrid>
+          <SmallCard accent="#3b82f6">
+            <div className="icon"><ShieldCheck size={18} /></div>
+            <span style={{ fontSize: "14px", textAlign: "center" }}>Broad-spectrum antimicrobial activity</span>
+          </SmallCard>
+          <SmallCard accent="#10b981">
+            <div className="icon"><Zap size={18} /></div>
+            <span style={{ fontSize: "14px", textAlign: "center" }}>Helps disrupt biofilms</span>
+          </SmallCard>
+          <SmallCard accent="#94a3b8">
+            <div className="icon"><Minus size={18} /></div>
+            <span style={{ fontSize: "14px", textAlign: "center" }}>Helps reduce microbial burden</span>
+          </SmallCard>
+          <SmallCard accent="#22c55e">
+            <div className="icon"><RefreshCcw size={18} /></div>
+            <span style={{ fontSize: "14px", textAlign: "center" }}>Supports infection control</span>
+          </SmallCard>
+          <SmallCard accent="#f43f5e">
+            <div className="icon"><Heart size={18} /></div>
+            <span style={{ fontSize: "14px", textAlign: "center" }}>May support wound healing as part of care</span>
+          </SmallCard>
+        </FooterGrid>
+      </FooterSection>
     </Container>
   );
 };
