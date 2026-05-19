@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { Sidebar } from './Sidebar';
 import { BottomNav } from './BottomNav';
 import logoImg from '../assets/biomarket.png';
@@ -32,17 +32,6 @@ const WatermarkImage = styled.img`
   max-width: 25vw;
   opacity: 0.3;
   transform: rotate(-25deg);
-`;
-
-const pageEnter = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 `;
 
 const AppContainer = styled.div`
@@ -78,12 +67,6 @@ const ContentArea = styled.main`
   }
 `;
 
-const AnimatedPage = styled.div`
-  animation: ${pageEnter} 0.4s ease-out forwards;
-  height: 100%;
-  width: 100%;
-`;
-
 interface LayoutProps {
   children: React.ReactNode;
   activeSection: string;
@@ -108,9 +91,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeSection, onNavig
       <MainWrapper>
         {/* <Header /> */}
         <ContentArea>
-          <AnimatedPage key={activeSection}>
-            {children}
-          </AnimatedPage>
+          {children}
         </ContentArea>
         {activeSection !== 'home' && (
           <BottomNav currentSection={activeSection} onNavigate={onNavigate} />

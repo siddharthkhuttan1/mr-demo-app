@@ -185,10 +185,22 @@ const BlockScreenCard = styled.div`
   align-items: center;
 `;
 
+const pageEnter = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const TabWrapper = styled.div<{ active: boolean }>`
   display: ${props => props.active ? 'block' : 'none'};
   height: 100%;
   width: 100%;
+  ${props => props.active && `animation: ${pageEnter} 0.4s ease-out forwards;`}
 `;
 
 const ACCESS_TIME_IN_HRS = 1; //todo: change to 72 before sharing
