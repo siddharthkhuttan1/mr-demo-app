@@ -185,6 +185,12 @@ const BlockScreenCard = styled.div`
   align-items: center;
 `;
 
+const TabWrapper = styled.div<{ active: boolean }>`
+  display: ${props => props.active ? 'block' : 'none'};
+  height: 100%;
+  width: 100%;
+`;
+
 const ACCESS_TIME_IN_HRS = 1; //todo: change to 72 before sharing
 
 const App: React.FC = () => {
@@ -308,32 +314,37 @@ const App: React.FC = () => {
   };
 
   const renderContent = () => {
-    switch (activeSection) {
-      case 'home':
-        return <Home onNavigate={handleNavigate} />;
-      case 'challenge':
-        return <Challenge onNavigate={handleNavigate} />;
-      case 'biofilms':
-        return <Biofilms onNavigate={handleNavigate} />;
-      case 'solution':
-        return <Solution onNavigate={handleNavigate} />;
-      case 'protocol':
-        return <Protocol onNavigate={handleNavigate} />;
-      case 'results':
-        return <Results onNavigate={handleNavigate} />;
-      case 'case':
-        return <Case onNavigate={handleNavigate} />;
-      case 'conclusion':
-        return <Conclusion onNavigate={handleNavigate} />;
-      case 'references':
-        return <References onNavigate={handleNavigate} />;
-      default:
-        return (
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: '#94a3b8' }}>
-            <h2>{activeSection.charAt(0).toUpperCase() + activeSection.slice(1)} Section Under Development</h2>
-          </div>
-        );
-    }
+    return (
+      <>
+        <TabWrapper active={activeSection === 'home'}>
+          <Home onNavigate={handleNavigate} />
+        </TabWrapper>
+        <TabWrapper active={activeSection === 'challenge'}>
+          <Challenge onNavigate={handleNavigate} />
+        </TabWrapper>
+        <TabWrapper active={activeSection === 'biofilms'}>
+          <Biofilms onNavigate={handleNavigate} />
+        </TabWrapper>
+        <TabWrapper active={activeSection === 'solution'}>
+          <Solution onNavigate={handleNavigate} />
+        </TabWrapper>
+        <TabWrapper active={activeSection === 'protocol'}>
+          <Protocol onNavigate={handleNavigate} />
+        </TabWrapper>
+        <TabWrapper active={activeSection === 'results'}>
+          <Results onNavigate={handleNavigate} />
+        </TabWrapper>
+        <TabWrapper active={activeSection === 'case'}>
+          <Case onNavigate={handleNavigate} />
+        </TabWrapper>
+        <TabWrapper active={activeSection === 'conclusion'}>
+          <Conclusion onNavigate={handleNavigate} />
+        </TabWrapper>
+        <TabWrapper active={activeSection === 'references'}>
+          <References onNavigate={handleNavigate} />
+        </TabWrapper>
+      </>
+    );
   };
 
   // 1. Expiration check takes precedence
