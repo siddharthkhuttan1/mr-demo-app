@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled, { ThemeProvider, keyframes } from 'styled-components';
+import styled, { ThemeProvider, keyframes, css } from 'styled-components';
 import { Smartphone, RotateCw } from 'lucide-react';
 import { theme } from './theme';
 import { GlobalStyles } from './theme/GlobalStyles';
@@ -200,7 +200,9 @@ const TabWrapper = styled.div<{ active: boolean }>`
   display: ${props => props.active ? 'block' : 'none'};
   height: 100%;
   width: 100%;
-  ${props => props.active && `animation: ${pageEnter} 0.4s ease-out forwards;`}
+  ${props => props.active && css`
+    animation: ${pageEnter} 0.4s ease-out forwards;
+  `}
 `;
 
 const ACCESS_TIME_IN_HRS = 1; //todo: change to 72 before sharing
