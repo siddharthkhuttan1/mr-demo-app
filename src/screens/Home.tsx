@@ -28,7 +28,7 @@ const HeroSection = styled.div`
   border-bottom: 1px solid ${props => props.theme.colors.border};
 
   @media (max-width: 1024px) {
-    grid-template-columns: 1fr;
+    //grid-template-columns: 1fr;
     gap: ${props => props.theme.spacing.xxl};
     padding: ${props => props.theme.spacing.xxl} ${props => props.theme.spacing.xl};
   }
@@ -132,6 +132,9 @@ const DiagramSection = styled.div`
   align-items: center;
   justify-content: center;
   gap: 12px;
+    @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const DiagramText = styled.div`
@@ -157,6 +160,10 @@ const DiagramText = styled.div`
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #4a749e;
+  }
+  
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;
 

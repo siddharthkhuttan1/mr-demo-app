@@ -16,6 +16,7 @@ const SidebarContainer = styled.nav`
   width: 100px;
   height: 100%;
   min-height: 100%;
+  flex-shrink: 0;
   background-color: #ffffff;
   border-right: 1px solid ${props => props.theme.colors.border};
   display: flex;
@@ -24,6 +25,11 @@ const SidebarContainer = styled.nav`
   padding: ${props => props.theme.spacing.lg} 0;
   z-index: 100;
   overflow-y: auto;
+
+  @media (max-width: 1024px) {
+    width: 80px;
+    padding: ${props => props.theme.spacing.md} 0;
+  }
 `;
 
 const BrandingIcon = styled.div`

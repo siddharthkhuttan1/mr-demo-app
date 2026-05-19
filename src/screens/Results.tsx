@@ -71,18 +71,40 @@ const TopRow = styled.div`
   display: grid;
   grid-template-columns: 1fr 1.5fr 1.5fr 1.2fr;
   gap: 16px;
+
+  @media (max-width: 1130px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const MiddleRow = styled.div`
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: 16px;
+
+  @media (max-width: 1130px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const BottomRow = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 16px;
+
+  @media (max-width: 1130px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const PatientGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  @media (max-width: 1130px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const Box = styled.div`
@@ -363,7 +385,7 @@ export const Results: React.FC<ResultsProps> = ({ onNavigate }) => {
         <BottomRow>
           <Box>
             <h3 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '20px', color: '#0f172a' }}>Patient Characteristics</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
+            <PatientGrid>
 
               <div style={{ backgroundColor: '#f8fafc', padding: '20px 16px', borderRadius: '12px', border: '1px solid #f1f5f9' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
@@ -400,7 +422,7 @@ export const Results: React.FC<ResultsProps> = ({ onNavigate }) => {
                 <div style={{ fontSize: '18px', fontWeight: 800, marginBottom: '6px', color: '#0f172a' }}>2 – 24 months</div>
                 <div style={{ fontSize: '12px', color: '#64748b' }}>(Median 6 months)</div>
               </div>
-            </div>
+            </PatientGrid>
           </Box>
 
           <Box style={{ backgroundColor: '#f0f9ff', border: '1px solid #bae6fd', display: 'flex', alignItems: 'center', gap: '20px', padding: '32px 24px' }}>
