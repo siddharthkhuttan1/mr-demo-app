@@ -23,6 +23,7 @@ const SidebarContainer = styled.nav`
   align-items: center;
   padding: ${props => props.theme.spacing.lg} 0;
   z-index: 100;
+  overflow-y: auto;
 `;
 
 const BrandingIcon = styled.div`
@@ -71,8 +72,8 @@ const NavItem = styled.li<NavItemProps>`
 `;
 
 const IconWrapper = styled.div<NavItemProps>`
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;

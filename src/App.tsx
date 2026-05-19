@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { GlobalStyles } from './theme/GlobalStyles';
-import { DeviceSimulator } from './components/layout/DeviceSimulator';
 import { Layout } from './components/Layout';
 import { Home } from './screens/Home';
 import { Challenge } from './screens/Challenge';
@@ -53,11 +52,9 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <DeviceSimulator>
-        <Layout activeSection={activeSection} onNavigate={handleNavigate}>
-          {renderContent()}
-        </Layout>
-      </DeviceSimulator>
+      <Layout activeSection={activeSection} onNavigate={handleNavigate}>
+        {renderContent()}
+      </Layout>
     </ThemeProvider>
   );
 };

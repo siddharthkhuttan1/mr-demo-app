@@ -21,11 +21,17 @@ const HeroSection = styled.div`
   grid-template-columns: 1fr 1.3fr;
   gap: ${props => props.theme.spacing.xl};
   align-items: center;
-  min-height: 100%;
+  min-height: 100vh;
   background: linear-gradient(135deg, #eef7ff 0%, #d4eaf7 100%);
   margin: -${props => props.theme.spacing.md} -${props => props.theme.spacing.md} -${props => props.theme.spacing.md} -${props => props.theme.spacing.md};
   padding: ${props => props.theme.spacing.xl} ${props => props.theme.spacing.xl};
   border-bottom: 1px solid ${props => props.theme.colors.border};
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: ${props => props.theme.spacing.xxl};
+    padding: ${props => props.theme.spacing.xxl} ${props => props.theme.spacing.xl};
+  }
 `;
 
 const TextContent = styled.div`
@@ -33,6 +39,11 @@ const TextContent = styled.div`
   flex-direction: column;
   gap: ${props => props.theme.spacing.sm};
   height: 100%;
+
+  @media (max-width: 1024px) {
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 const Tagline = styled.span`
@@ -61,6 +72,10 @@ const Description = styled.p`
   line-height: 1.5;
   max-width: 480px;
   margin-bottom: ${props => props.theme.spacing.lg};
+
+  @media (max-width: 1024px) {
+    max-width: 600px;
+  }
 `;
 
 const ButtonGroup = styled.div`
@@ -104,6 +119,11 @@ const VisualContent = styled.div`
   align-items: center;
   height: 100%;
   gap: 40px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 60px;
+  }
 `;
 
 const DiagramSection = styled.div`
@@ -144,21 +164,18 @@ const ProductCard = styled.div`
   background: transparent;
   border-radius: 32px;
   padding: 32px;
-  // box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 820px;
+  height: 80vh;
+  max-height: 820px;
   width: 280px;
   position: relative;
-  
-  // &::after {
-  //   content: '';
-  //   position: absolute;
-  //   inset: 0;
-  //   border-radius: 32px;
-  //   border: 1px solid rgba(255, 255, 255, 0.5);
-  // }
+
+  @media (max-width: 1024px) {
+    height: 60vh;
+    padding: 0;
+  }
 `;
 
 const ProductImage = styled.img`
@@ -280,27 +297,27 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       <HeroSection>
         <TextContent style={{ marginTop: "16px" }}>
           <Tagline>Prospective Clinical Study • 2023-2024</Tagline>
-          <Title style={{ marginTop: "100px" }}>Effect of <br /><HighlightText>Hypochlorous<br />Acid</HighlightText><br />in Open Wound<br />Healing</Title>
+          <Title style={{ marginTop: "60px" }}>Effect of <br /><HighlightText>Hypochlorous<br />Acid</HighlightText><br />in Open Wound<br />Healing</Title>
           <Description>
             An interactive clinical experience exploring HOCl-based wound care — mechanism, methodology, results, and a real-world case progression.
           </Description>
           <ButtonGroup>
             <CTAButton primary fullWidth onClick={() => onNavigate('challenge')}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: "16px" }}>
                 <Play size={16} fill="currentColor" />
                 Start interactive walkthrough
               </div>
               <ChevronRight size={18} />
             </CTAButton>
             <CTAButton onClick={() => onNavigate('results')}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: "16px" }}>
                 <FileText size={16} />
                 Study summary
               </div>
               <ChevronRight size={18} />
             </CTAButton>
             <CTAButton onClick={() => onNavigate('case')}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: "16px" }}>
                 <User size={16} />
                 Case highlight
               </div>
