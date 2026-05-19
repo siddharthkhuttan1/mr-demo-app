@@ -95,13 +95,13 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeSection, onNavig
     <AppContainer>
       <WatermarkOverlay>
         <WatermarkWrapper $offset="-120px">
-          <WatermarkImage src={logoImg} alt="Watermark Left" />
+          <WatermarkImage src={logoImg} alt="Watermark Left" style={{ width: '250px', maxWidth: '25vw', opacity: 0.3, transform: 'rotate(-25deg)' }} />
         </WatermarkWrapper>
         <WatermarkWrapper $offset="0px">
-          <WatermarkImage src={logoImg} alt="Watermark Center" />
+          <WatermarkImage src={logoImg} alt="Watermark Center" style={{ width: '250px', maxWidth: '25vw', opacity: 0.3, transform: 'rotate(-25deg)' }} />
         </WatermarkWrapper>
         <WatermarkWrapper $offset="120px">
-          <WatermarkImage src={logoImg} alt="Watermark Right" />
+          <WatermarkImage src={logoImg} alt="Watermark Right" style={{ width: '250px', maxWidth: '25vw', opacity: 0.3, transform: 'rotate(-25deg)' }} />
         </WatermarkWrapper>
       </WatermarkOverlay>
       <Sidebar activeSection={activeSection} onNavigate={onNavigate} />

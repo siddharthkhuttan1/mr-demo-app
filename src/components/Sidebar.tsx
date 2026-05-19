@@ -115,8 +115,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeSection, onNavigate }) =
 
   return (
     <SidebarContainer>
-      <BrandingIcon>
-        <img src={vidaLogo} alt="Vida" />
+      <BrandingIcon style={{ width: '48px', height: '48px' }}>
+        <img src={vidaLogo} alt="Vida" width="48" height="48" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
       </BrandingIcon>
       <NavList>
         {menuItems.map((item) => (

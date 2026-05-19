@@ -19,7 +19,7 @@ const BlockedContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   background-color: ${props => props.theme.colors.background.main};
   padding: ${props => props.theme.spacing.xl};
   font-family: ${props => props.theme.typography.fontFamily};
@@ -163,7 +163,7 @@ const BlockScreenContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   background-color: ${props => props.theme.colors.background.main};
   padding: ${props => props.theme.spacing.xl};
   font-family: ${props => props.theme.typography.fontFamily};
@@ -185,6 +185,8 @@ const BlockScreenCard = styled.div`
   align-items: center;
 `;
 
+const ACCESS_TIME_IN_HRS = 1; //todo: change to 72 before sharing
+
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [isBlocked, setIsBlocked] = useState<boolean>(() => {
@@ -203,7 +205,7 @@ const App: React.FC = () => {
       } else {
         const firstLoadDate = new Date(firstLoad);
         const hoursPassed = (now.getTime() - firstLoadDate.getTime()) / (1000 * 60 * 60);
-        if (hoursPassed > 72) {
+        if (hoursPassed > ACCESS_TIME_IN_HRS) {
           return true;
         }
       }
@@ -219,7 +221,14 @@ const App: React.FC = () => {
   const [currentWidth, setCurrentWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {
-    // 1. Initial screen width check on app load
+    // 1. Viewport height fix for iOS Safari
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    setVh();
+
+    // 2. Initial screen width check on app load
     const initialWidth = window.innerWidth;
     if (initialWidth < 1024) {
       setShowWarning(true);
@@ -241,7 +250,7 @@ const App: React.FC = () => {
         if (firstLoad) {
           const firstLoadDate = new Date(firstLoad);
           const hoursPassed = (now.getTime() - firstLoadDate.getTime()) / (1000 * 60 * 60);
-          if (hoursPassed > 72) {
+          if (hoursPassed > ACCESS_TIME_IN_HRS) {
             setIsBlocked(true);
             return;
           }
@@ -266,8 +275,10 @@ const App: React.FC = () => {
     // Dynamic screen width check on resize / orientation change
     const handleResize = () => {
       setCurrentWidth(window.innerWidth);
+      setVh();
     };
     window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', setVh);
 
     // Intercept manual console calls to localStorage.setItem in the same window/tab
     const originalSetItem = localStorage.setItem;
@@ -282,6 +293,7 @@ const App: React.FC = () => {
       clearInterval(interval);
       window.removeEventListener('storage', handleStorage);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', setVh);
       localStorage.setItem = originalSetItem;
     };
   }, []);

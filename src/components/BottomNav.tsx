@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const BottomNavContainer = styled.div`
-  height: 64px;
+  height: calc(64px + env(safe-area-inset-bottom, 0px));
   width: 100%;
   background-color: white;
   border-top: 1px solid ${props => props.theme.colors.border};
   display: flex;
   align-items: center;
-  padding: 0 ${props => props.theme.spacing.lg};
+  padding: 0 ${props => props.theme.spacing.lg} env(safe-area-inset-bottom, 0px) ${props => props.theme.spacing.lg};
   justify-content: space-between;
   box-shadow: 0 -2px 10px rgba(0,0,0,0.02);
 `;

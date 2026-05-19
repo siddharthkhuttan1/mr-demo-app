@@ -21,7 +21,7 @@ const HeroSection = styled.div`
   grid-template-columns: 1fr 1.3fr;
   gap: ${props => props.theme.spacing.xl};
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   background: linear-gradient(135deg, #eef7ff 0%, #d4eaf7 100%);
   margin: -${props => props.theme.spacing.md} -${props => props.theme.spacing.md} -${props => props.theme.spacing.md} -${props => props.theme.spacing.md};
   padding: ${props => props.theme.spacing.xl} ${props => props.theme.spacing.xl};
@@ -174,13 +174,13 @@ const ProductCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
   max-height: 820px;
   width: 280px;
   position: relative;
 
   @media (max-width: 1024px) {
-    height: 60vh;
+    height: calc(var(--vh, 1vh) * 60);
     padding: 0;
   }
 `;
